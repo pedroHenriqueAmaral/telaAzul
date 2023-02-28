@@ -1047,21 +1047,6 @@
           }
         }
       },
-      "Contexto/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Entidades": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3"
-        },
-        "compile": {
-          "bin/placeholder/Contexto.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Contexto.dll": {}
-        }
-      },
       "Entidades/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3241,11 +3226,6 @@
         "version.txt"
       ]
     },
-    "Contexto/1.0.0": {
-      "type": "project",
-      "path": "../Contexto/Contexto.csproj",
-      "msbuildProject": "../Contexto/Contexto.csproj"
-    },
     "Entidades/1.0.0": {
       "type": "project",
       "path": "../Entidades/Entidades.csproj",
@@ -3254,7 +3234,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Contexto >= 1.0.0",
+      "Entidades >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3"
     ]
@@ -3265,11 +3245,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Repositorio\\Repositorio.csproj",
-      "projectName": "Repositorio",
-      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Repositorio\\Repositorio.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
+      "projectName": "Contexto",
+      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Repositorio\\obj\\",
+      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3286,8 +3266,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj": {
-              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj"
+            "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj"
             }
           }
         }

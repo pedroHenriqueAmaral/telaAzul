@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj": {}
+    "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj": {
+    "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
-        "projectName": "TelaAzul",
-        "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
+        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj",
+        "projectName": "Entidades",
+        "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\obj\\",
+        "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,9 +51,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
