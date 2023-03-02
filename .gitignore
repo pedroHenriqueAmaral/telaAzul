@@ -5,3 +5,8 @@ TelaAzul/Contexto/obj/Contexto.csproj.nuget.g.props
 *.cache
 *.json
 TelaAzul/.vs/TelaAzul/v17/.suo
+*.dll
+*.cache
+*.json
+*.props
+*.user
