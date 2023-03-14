@@ -9,6 +9,12 @@ namespace Entidades
     public class Ingresso
     {
         public int Id { get; set; }
+
+        public virtual ICollection<Sala> Sala { get; set; }
         
+        // Cliente
+        // Data/Hora
+        // Filme
+
     }
 }
