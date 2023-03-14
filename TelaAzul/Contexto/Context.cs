@@ -11,7 +11,7 @@ namespace Contexto
         }
 
         /* DbSets */
-        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Genero> Categorias { get; set; }
         public DbSet<Filme> Filmes { get; set; }
 
         /* Conexão com SQL Server */
@@ -32,7 +32,7 @@ namespace Contexto
         /* Validações dos campos do Banco  */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categoria>(entidade =>
+            modelBuilder.Entity<Genero>(entidade =>
             {
                 entidade.HasKey(e => e.Id);
                 entidade.Property(e => e.Nome).HasMaxLength(100);
