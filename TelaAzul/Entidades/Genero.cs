@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Categoria
+    public class Genero
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
+        public string Nome { get; set; } // Terror, Ação, Aventura...
 
 
         /* Relacionamento | Lado de "Muitos" */
