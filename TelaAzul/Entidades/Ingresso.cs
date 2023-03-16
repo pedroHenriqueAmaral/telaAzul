@@ -17,7 +17,7 @@ namespace Entidades
         public float Valor { get; set; }
 
         // Vendas = Cliente + Filme + Ingresso
-        public virtual ICollection<Venda> Vendas { get; set; }
+        public virtual ICollection<Venda> ? Vendas { get; set; }
 
 
 
