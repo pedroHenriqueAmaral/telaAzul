@@ -13,6 +13,6 @@ namespace Entidades
 
 
         /* Relacionamento | Lado de "Muitos" */
-        public virtual ICollection<Filme> Filme { get; set; }
+        public virtual ICollection<Filme> Filmes { get; set; }
     }
 }
