@@ -9,7 +9,7 @@ namespace Entidades
     public class Sala
     {
         public int Id { get; set; }
-        public string Numero_Assentos { get; set; }
+        public int Numero_Assentos { get; set; }
 
         // ingresso
         public int IdIngresso { get; set; }
