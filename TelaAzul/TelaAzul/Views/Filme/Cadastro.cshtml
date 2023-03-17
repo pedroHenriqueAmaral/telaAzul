@@ -1,0 +1,61 @@
+﻿@model TelaAzul.Models.FilmeModel
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<h1>Cadastrar Filmes</h1>
+
+<form method="POST" asp-controller="Filme" action="Salvar">
+
+    <!-- Id, Título, Título Original, Sinope, Duracao, Audio -->
+
+    <div class="row">
+        <div class="form-group col-3">
+            <label for="id">Id:</label>
+            <input type="text" asp-for="Id" name="id" class="form-control" placeholder="Código do Filme" readonly />
+        </div>
+
+        <div class="form-group col-6">
+            <label for="titulo">Título:</label>
+            <input type="text" asp-for="Titulo" name="titulo" class="form-control" placeholder="Título do Filme" />
+        </div>
+
+        <div class="form-group col-3">
+            <label for="titulo-original">Título Original</label>
+            <input type="text" asp-for="Titulo_original" name="titulo-original" class="form-control" placeholder="Título Original do Filme" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-12">
+            <label for="sinopse" class="form-label">Sinópse</label>
+            <textarea type="text" asp-for="Sinopse" name="sinopse" class="form-control" placeholder="Sinópse do Filme." rows="3"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-5">
+            <label for="duracao" class="form-label">Duração</label>
+            <input type="number" asp-for="Duracao" name="duracao" class="form-control" placeholder="Duração do Filme em minutos." />
+        </div>
+
+        <div class="form-group col-5">
+            <label for="audio" class="form-label">Áudio</label>
+            <div class="dropdown">
+                <button type="button" asp-for="Audio" class="btn btn-outline-dark" data-bs-toggle="dropdown"></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Dublado</a></li>
+                    <li><a class="dropdown-item" href="#">Legendado</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-12">
+            <input type="submit" class="btn btn-dark" value="Cadastrar Filme" />
+            <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+        </div>
+    </div>
+
+</form>

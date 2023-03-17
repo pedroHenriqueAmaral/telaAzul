@@ -41,11 +41,17 @@ namespace Contexto
             modelBuilder.Entity<Filme>(entidade =>
             {
                 entidade.HasKey(e => e.Id);
-                entidade.Property(e => e.Descricao).HasMaxLength(150);
-                
-                /* Relacionamento Filme-Categoria  */
-                entidade.HasOne(e => e.Categoria).WithMany(c => c.Filme)
-                .HasConstraintName("FK_Filme_Categoria").OnDelete(DeleteBehavior.NoAction);
+                entidade.Property(e => e.Titulo).HasMaxLength(50);
+                entidade.Property(e => e.Titulo_original).HasMaxLength(50);
+                entidade.Property(e => e.Sinopse).HasMaxLength(150);
+
+                /*
+                 * Um pra Muitos
+                entidade.HasOne(e => e.).WithMany(c => c.)
+                .HasConstraintName("FK_").OnDelete(DeleteBehavior.NoAction);
+                */
+
+                entidade.HasMany(e => e.Vendas).WithMany(c => c.Filme);
             });
         }
     }
