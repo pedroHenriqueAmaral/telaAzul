@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GeneroModel>
+@{
+    ViewData["Title"] = "Listar";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Listar</h1>
+
+<span class="alert @ViewBag.classe">@ViewBag.msg</span>
+
+<script>
+    function confirmaExclusao(id) {
+        if(confirm("Excluir Gênero? ")) {
+            location.href = "Genero/Excluir/" + id;
+        }
+    }
+</script>
+
+<a href="~/Genero/Cadastro" class="btn btn-success">Adicionar Gênero</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th> 
+                <td scope="row">@item.Nome</td>
+                <td>
+                    <a href="~/Genero/PreAlterar/item.Id" class="btn btn-warning">Alterar</a>
+                </td>
+                <td>
+                    <a onclick="confirmaExclusao(@item.Id)" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

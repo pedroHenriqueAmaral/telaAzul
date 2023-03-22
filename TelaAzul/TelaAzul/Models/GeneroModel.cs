@@ -11,6 +11,7 @@ namespace TelaAzul.Models
         [Display(Name = "Código")]
         public int Id { get; set; }
 
+        [Display(Name = "Nome")]
         [Required(ErrorMessage = "Campo Obrigatório")]
         [MaxLength(20, ErrorMessage = "Máximo 20 Caractéres")]
         public String ? Nome { get; set; }

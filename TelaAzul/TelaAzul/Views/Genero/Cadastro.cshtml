@@ -1,0 +1,25 @@
+﻿@model TelaAzul.Models.GeneroModel
+@{
+    ViewData["Title"] = "cadastro";
+}
+
+<h1>Cadastrar Gênero</h1>
+
+<form method="POST" asp-controller="Genero" asp-action="Salvar">
+    <div class="row">
+        <div class="col-4 form-group">
+            <label for="id" class="form-label" asp-for="Id"></label>
+            <input type="text" id="id" class="form-control" asp-for="Id" readonly />
+            <span asp-validation-for="Id" class="alert-danger"></span>
+        </div>
+
+        <div class="col-5">
+            <label for="nome" class="form-label" asp-for="Nome"></label>
+            <input type="text" id="nome" class="form-control" asp-for="Nome" /> 
+            <span asp-validation-for="Nome" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-dark" value="Cadastrar" />
+    <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+</form>
