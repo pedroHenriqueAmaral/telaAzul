@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Contexto;
-using Entidades;
 using System.Linq.Expressions;
 
 namespace Repositorio
@@ -32,19 +31,19 @@ namespace Repositorio
             this._tabela.Remove(entidades);
         }
 
-        public virtual T Recuperar(Expression<Func <T, bool> > expressao)
-        {
-            return _tabela.Where(expressao).SingleOrDefault();
-        }
-
-        public virtual List<T> Listar(Expression<Func <T, bool>> expressao)
+        public virtual List<T> Listar(Expression<Func<T, bool>> expressao)
         {
             return _tabela.Where(expressao).ToList();
         }
 
-        public virtual List<T> ListarTodos(Expression<Func <T, bool>> expressao)
+        public virtual List<T> ListarTodos()
         {
             return _tabela.ToList();
+        }
+
+        public virtual T Recuperar(Expression<Func<T, bool>> expressao)
+        {
+            return _tabela.Where(expressao).SingleOrDefault();
         }
     }
 }
