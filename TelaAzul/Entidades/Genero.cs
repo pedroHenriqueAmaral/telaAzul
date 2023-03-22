@@ -8,11 +8,15 @@ namespace Entidades
 {
     public class Genero
     {
-        public int Id { get; set; }
-        public string Nome { get; set; } // Terror, Ação, Aventura...
+        public Genero() 
+        {
+            this.Filmes = new HashSet<Filme>();
+        }
 
+        public int Id { get; set; }
+        public string ? Nome { get; set; } // Terror, Ação, Aventura...
 
         /* Relacionamento | Lado de "Muitos" */
-        public virtual ICollection<Filme> Filmes { get; set; }
+        public virtual ICollection<Filme> ? Filmes { get; set; }
     }
 }

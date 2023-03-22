@@ -13,6 +13,9 @@ namespace TelaAzul
                 // Mapear Entidades e Models
                 // cfg.CreateMap<entidade,model>();
                 // cfg.CreateMap<model, entidade>();
+
+                cfg.CreateMap<Genero, GeneroModel>();
+                cfg.CreateMap<GeneroModel, Genero>();
             });
             return config;
         }
