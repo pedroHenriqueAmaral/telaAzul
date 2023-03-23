@@ -11,7 +11,7 @@
 <script>
     function confirmaExclusao(id) {
         if(confirm("Excluir Gênero? ")) {
-            location.href = "Genero/Excluir/" + id;
+            location.href = "/Genero/Excluir/" + id;    
         }
     }
 </script>
@@ -31,10 +31,10 @@
         @foreach(var item in Model)
         {
             <tr>
-                <th scope="row">@item.Id</th> 
+                <th scope="row">@item.Id</th>   
                 <td scope="row">@item.Nome</td>
                 <td>
-                    <a href="~/Genero/PreAlterar/item.Id" class="btn btn-warning">Alterar</a>
+                    <a href="~/Genero/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>
                 </td>
                 <td>
                     <a onclick="confirmaExclusao(@item.Id)" class="btn btn-danger">Excluir</a>

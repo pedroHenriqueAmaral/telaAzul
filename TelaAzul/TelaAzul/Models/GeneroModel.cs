@@ -54,7 +54,7 @@ namespace TelaAzul.Models
 
         public GeneroModel Selecionar(int id)
         {
-            GeneroModel model = null;
+            GeneroModel ? model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
             using (Context contexto = new Context())
@@ -63,7 +63,7 @@ namespace TelaAzul.Models
                 Genero gen = repo.Recuperar(g => g.Id == id);
                 model = mapper.Map<GeneroModel>(gen);
             }
-            return model;
+            return model; 
         }
 
         public void Excluir(int id)

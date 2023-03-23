@@ -16,6 +16,9 @@ namespace TelaAzul
 
                 cfg.CreateMap<Genero, GeneroModel>();
                 cfg.CreateMap<GeneroModel, Genero>();
+
+                cfg.CreateMap<Filme, FilmeModel>();
+                cfg.CreateMap<FilmeModel, Filme>();
             });
             return config;
         }

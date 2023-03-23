@@ -11,17 +11,19 @@ namespace Contexto
         }
 
         /* DbSets */
-        public DbSet<Genero> Categorias { get; set; }
-        public DbSet<Filme> Filmes { get; set; }
+        public DbSet<Genero> Genero { get; set; }
+        public DbSet<Filme> Filme { get; set; }
+        public DbSet<Studio> Studio { get; set; }
 
         /* Conexão com SQL Server */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
-            var Conn = @"Server=NomeServer;
-                         DataBase=NomeBanco;
-                         integrated security=true";
+            var Conn = @"Server=LYDIA-1;
+                         DataBase=TelaAzul;
+                         integrated security=true;
+                         Trust Server Certificate=true";
 
             if (!optionsBuilder.IsConfigured)
             {
@@ -50,9 +52,13 @@ namespace Contexto
                 entidade.HasOne(e => e.).WithMany(c => c.)
                 .HasConstraintName("FK_").OnDelete(DeleteBehavior.NoAction);
                 */
-
-                entidade.HasMany(e => e.Vendas).WithMany(c => c.Filme);
             });
+
+            modelBuilder.Entity<Studio>(entidade =>
+            {
+                entidade.HasKey(e => e.Id); 
+            });
+
         }
     }
 }
