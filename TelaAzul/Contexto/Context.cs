@@ -44,14 +44,12 @@ namespace Contexto
             {
                 entidade.HasKey(e => e.Id);
                 entidade.Property(e => e.Titulo).HasMaxLength(50);
-                entidade.Property(e => e.Titulo_original).HasMaxLength(50);
-                entidade.Property(e => e.Sinopse).HasMaxLength(150);
+                //entidade.Property(e => e.Titulo_original).HasMaxLength(50);
+                entidade.Property(e => e.Sinopse).HasMaxLength(250);
 
-                /*
-                 * Um pra Muitos
-                entidade.HasOne(e => e.).WithMany(c => c.)
-                .HasConstraintName("FK_").OnDelete(DeleteBehavior.NoAction);
-                */
+                // Um pra Muitos
+                entidade.HasOne(e => e.Genero).WithMany(c => c.Filmes)
+                .HasConstraintName("FK_Genero_Filme").OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Studio>(entidade =>

@@ -1,55 +1,74 @@
 ﻿@model TelaAzul.Models.FilmeModel
 @{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "cadastro";
 }
 
 <h1>Cadastrar Filmes</h1>
 
-<form method="POST" asp-controller="Filme" action="Salvar">
+<form method="POST" asp-controller="Filme" asp-action="Salvar">
 
     <!-- Id, Título, Título Original, Sinope, Duracao, Audio -->
 
     <div class="row">
-        <div class="form-group col-3">
-            <label for="id">Id:</label>
-            <input type="text" asp-for="Id" name="id" class="form-control" placeholder="Código do Filme" readonly />
+
+        <div class="form-group col-2">
+            <label for="id" class="form-label"  asp-for="Id"></label>
+            <input type="text" asp-for="Id" name="id" class="form-control" readonly />
+            <span asp-validation-for="Id" class="alert-danger"></span>
         </div>
 
-        <div class="form-group col-6">
-            <label for="titulo">Título:</label>
-            <input type="text" asp-for="Titulo" name="titulo" class="form-control" placeholder="Título do Filme" />
+        <div class="form-group col-5">
+            <label for="titulo" class="form-label"  asp-for="Titulo"></label>
+            <input type="text" asp-for="Titulo" name="titulo" class="form-control" required />
+            <span asp-validation-for="Titulo" class="alert-danger"></span>
         </div>
 
-        <div class="form-group col-3">
-            <label for="titulo-original">Título Original</label>
-            <input type="text" asp-for="Titulo_original" name="titulo-original" class="form-control" placeholder="Título Original do Filme" />
+        <!--
+        <div class="form-group col-5">
+            <label for="titulo-original" class="form-label" asp-for="Titulo_original"></label>
+            <input type="text" asp-for="Titulo_original" name="titulo-original" class="form-control" required />
+            <span asp-validation-for="Titulo_original" class="alert-danger"></span>
         </div>
-    </div>
+        -->
+
+    </div><!-- End Row -->
 
     <div class="row">
         <div class="form-group col-12">
-            <label for="sinopse" class="form-label">Sinópse</label>
-            <textarea type="text" asp-for="Sinopse" name="sinopse" class="form-control" placeholder="Sinópse do Filme." rows="3"></textarea>
+            <label for="sinopse" class="form-label" asp-for="Sinopse"></label>
+            <textarea type="text" asp-for="Sinopse" name="sinopse" class="form-control" rows="3" required></textarea>
+            <span asp-validation-for="Sinopse" class="alert-danger"></span>
         </div>
     </div>
 
     <div class="row">
-        <div class="form-group col-5">
-            <label for="duracao" class="form-label">Duração</label>
-            <input type="number" asp-for="Duracao" name="duracao" class="form-control" placeholder="Duração do Filme em minutos." />
+        <div class="form-group col-4">
+            <label for="duracao" class="form-label" asp-for="Duracao"></label>
+            <input type="number" asp-for="Duracao" name="duracao" class="form-control" placeholder="Em minutos." />
+            <span asp-validation-for="Duracao" class="alert-danger"></span>
         </div>
 
-        <div class="form-group col-5">
-            <label for="audio" class="form-label">Áudio</label>
-            <div class="dropdown">
-                <button type="button" asp-for="Audio" class="btn btn-outline-dark" data-bs-toggle="dropdown"></button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Dublado</a></li>
-                    <li><a class="dropdown-item" href="#">Legendado</a></li>
-                </ul>
-            </div>
+        <div class="col-4" form-group>
+            <label for="audio" class="form-check-label" asp-for="Audio"></label>
+            <select class="form-control" asp-for="Audio">
+                <option>Seleciona o Áudio do Filme</option>
+                <option>Dublado</option>
+                <option>Inglês Legendado</option>
+                <option>Inglês</option>
+            </select>
+            <span asp-validation-for="Audio" class="alert-danger"></span>
         </div>
-    </div>
+
+        <div class="col-4 form-group">
+            <label for="genero" class="form-label" asp-for="IdGenero"></label>
+            <select class="form-control" asp-for="IdGenero" asp-items="@ViewBag.listaGeneros">
+                <option>Selecione gênero do filme</option>
+            </select>
+            <span asp-validation-for="IdGenero" class="alert-danger"></span>
+        </div>
+
+
+    </div><!-- End Row -->
 
     <div class="row">
         <div class="form-group col-12">
