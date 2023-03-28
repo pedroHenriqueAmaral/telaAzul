@@ -68,13 +68,6 @@ namespace TelaAzul.Controllers
             FilmeModel filmodel = new FilmeModel();
             List<FilmeModel> lista = filmodel.Listar();
 
-            List<GeneroModel> genero = (new GeneroModel()).Listar();
-            ViewBag.generoFilme = genero.Select(g => new SelectListItem()
-            {
-                Value = g.Id.ToString(),
-                Text = g.Nome
-            });
-
             return View(lista);
         }
 

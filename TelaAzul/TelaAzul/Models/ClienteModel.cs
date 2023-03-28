@@ -11,25 +11,42 @@ namespace TelaAzul.Models
         [Display(Name = "Código")]
         public int Id { get; set; }
 
-        [Display(Name = "Data de Nascimento")]
         [Required(ErrorMessage = "Campo Obrigatório")]
-        [MaxLength(30, ErrorMessage = "Máximo 30 Caractéres")]
+        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Nome { get; set; }
+
+        [Display(Name = "Data de Nascimento")]
         public DateTime Data_Nascimento { get; set; }
 
         [Display(Name = "Tipo")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
+        //[Required(ErrorMessage = "Campo Obrigatório")]
         public string ? Tipo_Cliente { get; set; }
 
         [Display(Name = "E-mail")]
         [Required(ErrorMessage = "Campo Obrigatório")]
-        [MaxLength(20, ErrorMessage = "Máximo 20 Caractéres")]
+        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Email { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         [MaxLength(30, ErrorMessage = "Máximo 30 Caractéres")]
         public string ? Senha { get; set; }
 
+
+        public ClienteModel ValidaLogin(string email, string senha)
+        {
+            ClienteModel ? model = null;
+
+            using(Context contexto = new Context())
+            {
+                var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
+
+                ClienteRepo repo = new ClienteRepo(contexto);
+                Cliente cli = repo.Recuperar(c => c.Email == email && c.Senha == senha);
+
+                model = mapper.Map<ClienteModel>(cli);
+            }
+            return model;
+        }
 
         public ClienteModel Salvar(ClienteModel model) 
         {

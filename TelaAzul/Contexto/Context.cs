@@ -14,6 +14,7 @@ namespace Contexto
         public DbSet<Genero> Genero { get; set; }
         public DbSet<Filme> Filme { get; set; }
         public DbSet<Studio> Studio { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
 
         /* Conexão com SQL Server */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -55,6 +56,14 @@ namespace Contexto
             modelBuilder.Entity<Studio>(entidade =>
             {
                 entidade.HasKey(e => e.Id); 
+            });
+
+            modelBuilder.Entity<Cliente>(entidade =>
+            {
+                entidade.HasKey(e => e.Id);
+                entidade.Property(e => e.Nome).HasMaxLength(50);
+                entidade.Property(e => e.Email).HasMaxLength(50);
+                entidade.Property(e => e.Senha).HasMaxLength(30);
             });
 
         }
