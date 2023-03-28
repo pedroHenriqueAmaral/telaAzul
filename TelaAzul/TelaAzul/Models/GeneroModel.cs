@@ -27,7 +27,7 @@ namespace TelaAzul.Models
             {
                 GeneroRepo repo = new GeneroRepo(contexto);
 
-                if (model.Id == 0)
+                if(model.Id == 0)
                     repo.Inserir(genero);
                 else
                     repo.Alterar(genero);
@@ -40,7 +40,7 @@ namespace TelaAzul.Models
 
         public List<GeneroModel> Listar()
         {
-            List<GeneroModel> listamodel = null;
+            List<GeneroModel> ? listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
             using(Context contexto = new Context())
@@ -57,7 +57,7 @@ namespace TelaAzul.Models
             GeneroModel ? model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
-            using (Context contexto = new Context())
+            using(Context contexto = new Context())
             {
                 GeneroRepo repo = new GeneroRepo(contexto);
                 Genero gen = repo.Recuperar(g => g.Id == id);
@@ -68,7 +68,7 @@ namespace TelaAzul.Models
 
         public void Excluir(int id)
         {
-            using (Context contexto = new Context())
+            using(Context contexto = new Context())
             {
                 GeneroRepo repo = new GeneroRepo(contexto);
                 Genero genero = repo.Recuperar(g => g.Id == id);

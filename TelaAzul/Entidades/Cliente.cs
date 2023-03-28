@@ -15,7 +15,8 @@ namespace Entidades
         public string ? Email { get; set; } // usado para login (possibilidade para newsletter)
         public string ? Senha { get; set; }
         
-        // ingressos => venda (muitos-muitos)
-        public virtual ICollection <Venda> ? Vendas { get; set; }
+        
+        // Cliente > Vendas < Ingresso
+        // public virtual ICollection <Venda> ? Vendas { get; set; }
     }
 }
