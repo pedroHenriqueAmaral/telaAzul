@@ -60,11 +60,11 @@
         </div>
 
         <div class="col-4 form-group">
-            <label for="genero" class="form-label" asp-for="IdGenero"></label>
-            <select class="form-control" asp-for="IdGenero" asp-items="@ViewBag.listaGeneros">
+            <label for="genero" class="form-label" asp-for="GeneroId"></label>
+            <select class="form-control" asp-for="GeneroId" asp-items="@ViewBag.listaGeneros">
                 <option>Selecione gênero do filme</option>
             </select>
-            <span asp-validation-for="IdGenero" class="alert-danger"></span>
+            <span asp-validation-for="GeneroId" class="alert-danger"></span>
         </div>
 
 

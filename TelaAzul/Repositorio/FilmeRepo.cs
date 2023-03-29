@@ -10,6 +10,11 @@ namespace Repositorio
 {
     public class FilmeRepo : BaseRepo<Filme>
     {
-        public FilmeRepo(Context contexto) : base(contexto) { }
+        public FilmeRepo(Context contexto) : base(contexto) {
+        
+        
+
+        }
+        
     }
 }

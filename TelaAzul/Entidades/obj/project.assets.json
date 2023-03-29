@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj",
       "projectName": "Entidades",
-      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj",
+      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\obj\\",
+      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

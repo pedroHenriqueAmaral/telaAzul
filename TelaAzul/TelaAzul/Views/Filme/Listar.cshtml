@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FilmeModel>
+﻿    @model IEnumerable<FilmeModel>
 
 @{
     ViewData["Title"] = "listar";
@@ -42,7 +42,7 @@
                 <td>@item.Sinopse</td>
                 <td>@item.Duracao</td>
                 <td>@item.Audio</td>
-                <td>@item.IdGenero</td>
+                <td>@item.genero.Nome</td>
                 
                 <td>
                     <a href="~/Filme/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>

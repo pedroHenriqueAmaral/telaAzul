@@ -1,0 +1,17 @@
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Repositorio.deps.json
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Repositorio.dll
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Repositorio.pdb
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Contexto.dll
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Entidades.dll
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Contexto.pdb
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\bin\Debug\net6.0\Entidades.pdb
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.csproj.AssemblyReference.cache
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.AssemblyInfoInputs.cache
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.AssemblyInfo.cs
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.csproj.CopyComplete
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.dll
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\refint\Repositorio.dll
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\Repositorio.pdb
+C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\Repositorio\obj\Debug\net6.0\ref\Repositorio.dll

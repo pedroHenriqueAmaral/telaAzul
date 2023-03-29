@@ -21,7 +21,7 @@ namespace Contexto
         {
             base.OnConfiguring(optionsBuilder);
 
-            var Conn = @"Server=LYDIA-1;
+            var Conn = @"Server=LYDIA-2;
                          DataBase=TelaAzul;
                          integrated security=true;
                          Trust Server Certificate=true";

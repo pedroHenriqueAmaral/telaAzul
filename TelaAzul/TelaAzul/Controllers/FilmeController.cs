@@ -68,6 +68,11 @@ namespace TelaAzul.Controllers
             FilmeModel filmodel = new FilmeModel();
             List<FilmeModel> lista = filmodel.Listar();
 
+            GeneroModel genm = new GeneroModel();
+            foreach (var item in lista)
+            {
+                item.genero = genm.Selecionar(item.GeneroId);
+            }
             return View(lista);
         }
 

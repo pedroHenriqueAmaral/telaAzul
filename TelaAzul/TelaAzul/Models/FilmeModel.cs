@@ -37,9 +37,9 @@ namespace TelaAzul.Models
         public string ? Audio { get; set; }
 
         [Display(Name = "Gênero")]
-        public int IdGenero { get; set; }
-        
+        public int GeneroId { get; set; }
 
+        public GeneroModel genero { get; set; }
 
         public FilmeModel Salvar(FilmeModel model)
         {
