@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TelaAzul.Models;
 
@@ -6,17 +7,12 @@ namespace TelaAzul.Controllers
 {
     public class FilmeController : Controller
     {
-        /*
-        public IActionResult Index()
+        // Para Upload de Imagem
+        private readonly IWebHostEnvironment ? webHostEnvironment;
+        public FilmeController(IWebHostEnvironment hostEnvironment)
         {
-            return View();
+            webHostEnvironment = hostEnvironment;
         }
-        
-        public IActionResult Cadastro()
-        {
-            return  View(new FilmeModel());
-        }
-        */
 
         public IActionResult Cadastro()
         {
@@ -37,7 +33,7 @@ namespace TelaAzul.Controllers
                 try
                 {
                     FilmeModel filmodel = new FilmeModel();
-                    filmodel.Salvar(model);
+                    filmodel.Salvar(model, webHostEnvironment);
 
                     ViewBag.classe = "alert-success";
                     ViewBag.msg = "Salvo com sucesso ";
@@ -71,7 +67,7 @@ namespace TelaAzul.Controllers
             GeneroModel genm = new GeneroModel();
             foreach (var item in lista)
             {
-                item.genero = genm.Selecionar(item.GeneroId);
+                item.Genero = genm.Selecionar(item.GeneroId);
             }
             return View(lista);
         }

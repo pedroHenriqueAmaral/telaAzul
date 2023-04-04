@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string ? Titulo { get; set; }
-        // public string ? Titulo_original { get; set; } // no idioma orignal
+        public string ? Imagem { get; set; }
         public string ? Sinopse { get; set; }
         public string ? Duracao { get; set; } // em minutos
         public string ? Audio { get; set; } // dublado ou legendado

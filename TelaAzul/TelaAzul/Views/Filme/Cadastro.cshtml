@@ -5,12 +5,8 @@
 
 <h1>Cadastrar Filmes</h1>
 
-<form method="POST" asp-controller="Filme" asp-action="Salvar">
-
-    <!-- Id, Título, Título Original, Sinope, Duracao, Audio -->
-
+<form method="POST" asp-controller="Filme" asp-action="Salvar" enctype="multipart/form-data">
     <div class="row">
-
         <div class="form-group col-2">
             <label for="id" class="form-label"  asp-for="Id"></label>
             <input type="text" asp-for="Id" name="id" class="form-control" readonly />
@@ -22,16 +18,7 @@
             <input type="text" asp-for="Titulo" name="titulo" class="form-control" required />
             <span asp-validation-for="Titulo" class="alert-danger"></span>
         </div>
-
-        <!--
-        <div class="form-group col-5">
-            <label for="titulo-original" class="form-label" asp-for="Titulo_original"></label>
-            <input type="text" asp-for="Titulo_original" name="titulo-original" class="form-control" required />
-            <span asp-validation-for="Titulo_original" class="alert-danger"></span>
-        </div>
-        -->
-
-    </div><!-- End Row -->
+    </div>
 
     <div class="row">
         <div class="form-group col-12">
@@ -66,9 +53,15 @@
             </select>
             <span asp-validation-for="GeneroId" class="alert-danger"></span>
         </div>
+    </div>
 
-
-    </div><!-- End Row -->
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="imagem" class="form-label" asp-for="ArquivoImagem"></label>
+            <input type="file" class="form-control" asp-for="ArquivoImagem" name="imagem" id="imagem" />
+            <span asp-validation-for="ArquivoImagem" class="alert-danger"></span>
+        </div>
+    </div>
 
     <div class="row">
         <div class="form-group col-12">

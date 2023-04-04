@@ -42,7 +42,8 @@
                 <td>@item.Sinopse</td>
                 <td>@item.Duracao</td>
                 <td>@item.Audio</td>
-                <td>@item.genero.Nome</td>
+                <td>@item.Genero.Nome</td>
+                <td><img src="~/Imagens/@item.Imagem" asp-append-version="true" class="rounded-circle" height="40"></td>
                 
                 <td>
                     <a href="~/Filme/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>

@@ -16,17 +16,15 @@ namespace TelaAzul.Models
         [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Titulo { get; set; }
 
-        /*
-        [Display(Name = "Título Original")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
-        public string ? Titulo_original { get; set; }
-        */
-
         [Display(Name = "Sinopse")]
         [Required(ErrorMessage = "Campo Obrigatório")]
         [MaxLength(250, ErrorMessage = "Máximo 250 Caractéres")]
         public string ? Sinopse { get; set; }
+
+        public string ? Imagem { get; set; }
+        [Display(Name = "Imagem de Cartaz")]
+        [Required(ErrorMessage = "Selecione uma Imagem")]
+        public IFormFile ? ArquivoImagem { get; set; }
 
         [Display(Name = "Duração do Filme")]
         [Required(ErrorMessage = "Campo Obrigatório")]
@@ -38,14 +36,15 @@ namespace TelaAzul.Models
 
         [Display(Name = "Gênero")]
         public int GeneroId { get; set; }
+        public GeneroModel ? Genero { get; set; }
 
-        public GeneroModel genero { get; set; }
-
-        public FilmeModel Salvar(FilmeModel model)
+        public FilmeModel Salvar(FilmeModel model, IWebHostEnvironment webHostEnvironment)
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-
             Filme filme = mapper.Map<Filme>(model);
+            
+            filme.Imagem = Upload(model.ArquivoImagem, webHostEnvironment);
+
             using (Context contexto = new Context())
             {
                 FilmeRepo repo = new FilmeRepo(contexto);
@@ -100,6 +99,25 @@ namespace TelaAzul.Models
                 
                 contexto.SaveChanges();
             }
+        }
+
+        private String Upload(IFormFile arquivoImagem, IWebHostEnvironment webHostEnvironment)
+        {
+            string ? nomeUnicoArquivo = null;
+
+            if(arquivoImagem != null)
+            {
+                string pastaImagens = Path.Combine(webHostEnvironment.WebRootPath, "Imagens");
+                nomeUnicoArquivo = Guid.NewGuid().ToString() + "_" + arquivoImagem.FileName;
+                
+                string caminhoArquivo = Path.Combine(pastaImagens, nomeUnicoArquivo);
+
+                using(var fileStream = new FileStream(caminhoArquivo, FileMode.Create))
+                {
+                    arquivoImagem.CopyTo(fileStream);
+                }
+            }
+            return nomeUnicoArquivo;
         }
     }
 }
