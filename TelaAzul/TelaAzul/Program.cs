@@ -20,6 +20,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+/*
+services.AddMvc();
+services.AddDistributedMemoryCache();
+services.AddSession();
+
+app.UseSession();
+*/
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -5,11 +5,12 @@ namespace TelaAzul.Controllers
 {
     public class ClienteController : Controller
     {
+        
         public IActionResult Cadastro()
         {
             return View(new ClienteModel());
         }
-
+        
         public IActionResult Login()
         {
             return View();
@@ -24,16 +25,25 @@ namespace TelaAzul.Controllers
             {
                 ViewBag.msg = "Dados incorretos ou inexistentes. ";
                 ViewBag.classe = "alert-danger";
-                
                 return View("login");
             } 
             else
             {
-
-
-
+                HttpContext.Session.SetInt32("idCliente", model.Id);
+                HttpContext.Session.SetString("nomeCliente", model.Nome);
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        public IActionResult Sair()
+        {
+            /* Limpa a Sessão */
+            HttpContext.Session.Remove("idCliente");
+            HttpContext.Session.Remove("nomeCliente");
+            HttpContext.Session.Clear();
+
+            // Manda pra login
+            return RedirectToAction("Login", "Cliente");
         }
 
         [HttpPost]
