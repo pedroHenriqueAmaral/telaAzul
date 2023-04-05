@@ -3,6 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddMvc();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,13 +24,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-/*
-services.AddMvc();
-services.AddDistributedMemoryCache();
-services.AddSession();
+
+
 
 app.UseSession();
-*/
+
 
 app.MapControllerRoute(
     name: "default",

@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\TelaAzul
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Cliente/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,8 +68,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Shared/_LayoutSite.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRTaXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/_ViewImports.cshtml]
