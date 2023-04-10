@@ -3245,11 +3245,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
       "projectName": "Contexto",
-      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
+      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Contexto\\obj\\",
+      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3266,8 +3266,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj"
+            "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj"
             }
           }
         }
@@ -3307,7 +3307,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10740,11 +10740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
       "projectName": "TelaAzul",
-      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
+      "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\TelaAzul\\obj\\",
+      "outputPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10761,14 +10761,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj": {
-              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj"
+            "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj": {
+              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj"
             },
-            "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj"
+            "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Entidades\\Entidades.csproj"
             },
-            "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Repositorio\\Repositorio.csproj": {
-              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Repositorio\\Repositorio.csproj"
+            "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Repositorio\\Repositorio.csproj": {
+              "projectPath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Repositorio\\Repositorio.csproj"
             }
           }
         }
@@ -10819,8 +10819,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -1,7 +1,11 @@
 # TelaAzul
 
-## Sistema de Venda de Ingresso para Cinema
+## Sistema de Cinema
 
-Usando **C# Web MVC** na disciplina da faculdade.
+Projeto utilizando **C# Web MVC** para disciplina da faculdade.
+
+---
+
+> [Template de Dashboard utilizado](https://github.com/creativetimofficial/light-bootstrap-dashboard)
 
 

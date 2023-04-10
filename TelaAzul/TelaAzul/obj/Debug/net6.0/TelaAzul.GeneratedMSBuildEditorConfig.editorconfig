@@ -9,77 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TelaAzul
 build_property.RootNamespace = TelaAzul
-build_property.ProjectDir = C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\TelaAzul\
+build_property.ProjectDir = C:\Users\pedro\OneDrive\Desktop\Ana\TelaAzul\TelaAzul\TelaAzul\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\pedro\OneDrive\Desktop\TelaAzul\TelaAzul\TelaAzul
+build_property.MSBuildProjectDirectory = C:\Users\pedro\OneDrive\Desktop\Ana\TelaAzul\TelaAzul\TelaAzul
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/Error.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/_Layout.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/_ViewImports.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Pages/_ViewStart.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Cliente/Cadastro.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Cliente/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Cliente/Login.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Cliente/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Filme/Cadastro.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Filme/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbWVcQ2FkYXN0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Filme/Listar.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Filme/Listar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbWVcTGlzdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Genero/Cadastro.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Genero/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJvXENhZGFzdHJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Genero/Listar.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Genero/Listar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJvXExpc3Rhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Home/Index.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/HomeSite/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVNpdGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Home/Privacy.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Shared/Error.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Shared/_LayoutSite.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Shared/_LayoutSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRTaXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/_ViewImports.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/_ViewStart.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/OneDrive/Desktop/TelaAzul/TelaAzul/TelaAzul/Views/Shared/_Layout.cshtml]
+[C:/Users/pedro/OneDrive/Desktop/Ana/TelaAzul/TelaAzul/TelaAzul/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1sx5qfowug

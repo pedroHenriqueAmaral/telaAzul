@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VZLGJgpBVoA3mKvxdh1hnkgRHqvqjeKo1nEi383reSq/wZZNTPGsj4o9VyFn/Q83SM3lLYha2PYO/vN/Ig68NA==",
+  "dgSpecHash": "jhZwfSBpub/50LEA/chbTE+DBbGT8gveJCMlr8xGHiLrkZqmd3eqkcp+84kMzW8UjPlMzfJYV6Tfxyjj9KTPzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
+  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\Contexto\\Contexto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

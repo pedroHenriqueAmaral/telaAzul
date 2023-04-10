@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3xazn5ccSyFTuoHJl+ybMUGEsZnsEobejQ9wAFmc2YI82T7va8FZajjHkdSrE5cyuKV6x/s/GdDN8Wbbnt3bEQ==",
+  "dgSpecHash": "W63cz+ZsxjS/9axh0rnr+nWeepRrR2yGxMEl/ZQyymHO4c+CDzqfPYpEvFr2rvJufywg8RAv2wwjdNRaPFkrsg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Desktop\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
+  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\TelaAzul.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
@@ -194,5 +194,12 @@
     "C:\\Users\\pedro\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\pedro\\OneDrive\\Desktop\\Ana\\TelaAzul\\TelaAzul\\TelaAzul\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
