@@ -21,15 +21,8 @@ namespace Contexto
         {
             base.OnConfiguring(optionsBuilder);
 
-<<<<<<< Updated upstream
-            var Conn = @"Server=LYDIA-2;
-                         DataBase=TelaAzul2;
-=======
             var Conn = @"Server=LYDIA-1;
-                         DataBase=CinemaTelaAzul;
->>>>>>> Stashed changes
-                         integrated security=true;
-                         Trust Server Certificate=true";
+                         DataBase=TelaAzul2";
 
             if (!optionsBuilder.IsConfigured)
             {

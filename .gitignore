@@ -10,3 +10,8 @@ TelaAzul/.vs/TelaAzul/v17/.suo
 *.json
 *.props
 *.user
+*.vsidx
+*.v2
+*.1
+*.pdb
+*.cache
