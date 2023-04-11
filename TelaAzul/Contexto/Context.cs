@@ -21,8 +21,8 @@ namespace Contexto
         {
             base.OnConfiguring(optionsBuilder);
 
-            var Conn = @"Server=LYDIA-1;
-                         DataBase=TelaAzul2";
+            var Conn = @"Server=nomeServer;
+                         DataBase=nomeBanco";
 
             if (!optionsBuilder.IsConfigured)
             {
