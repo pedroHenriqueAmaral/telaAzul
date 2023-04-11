@@ -14,15 +14,20 @@ namespace Contexto
         public DbSet<Genero> Genero { get; set; }
         public DbSet<Filme> Filme { get; set; }
         public DbSet<Studio> Studio { get; set; }
+        public DbSet<Ingresso> Ingresso { get; set; }
+        public DbSet<Sala> Sala { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Funcionario> Funcionario { get; set; }
 
         /* Conexão com SQL Server */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
-            var Conn = @"Server=nomeServer;
-                         DataBase=nomeBanco";
+            var Conn = @"Server=LYDIA-1;
+                         DataBase=Tela Azul;
+                         integrated security=true;
+                         Trust Server Certificate=true";
 
             if (!optionsBuilder.IsConfigured)
             {
