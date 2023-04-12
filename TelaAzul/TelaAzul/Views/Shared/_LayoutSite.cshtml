@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 
 <html lang="PT-BR">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -13,6 +12,8 @@
     <link href="~/css/css" rel="stylesheet" />
     <link href="~/css/blog.css" rel="stylesheet" />
 
+    <script src="https://kit.fontawesome.com/c754cc0f48.js" crossorigin="anonymous"></script>
+
     <title>@ViewData["Title"]</title>
 </head>
 
@@ -20,46 +21,51 @@
     <div class="container">
         <header class="blog-header py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-                    <a class="text-muted" href="#">Inscrição</a>
+                <div class="col-4">
+                    <a class="blog-header-logo text-primary text-decoration-none" 
+                        href="~/HomeSite/Index">TELA AZUL</a>
                 </div>
-                <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="#">Grandão</a>
+                <div class="col-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar" aria-label="buscar filme" />
+                        <button class="btn btn-outline-secondary" type="button" id="buscar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="btn btn-sm btn-outline-secondary" href="#">Cadastrar-se</a>
+                    <a class="btn btn-sm bg-dark text-white" href="#">Entrar</a>
+                    <a class="btn btn-sm btn-outline-success ms-2" href="#">Cadastrar-se</a>
                 </div>
             </div>
         </header>
 
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-                <a class="p-2 text-muted" href="#">Ação</a>
-                <a class="p-2 text-muted" href="#">Aventura</a>
-                <a class="p-2 text-muted" href="#">Comédia</a>
-                <a class="p-2 text-muted" href="#">Drama</a>
-                <a class="p-2 text-muted" href="#">Documentário</a>
-                <a class="p-2 text-muted" href="#">Romance</a>
-                <a class="p-2 text-muted" href="#">Suspense</a>
-                <a class="p-2 text-muted" href="#">Sci-fi</a>
-                <a class="p-2 text-muted" href="#">Terror</a>  
+        <div class="nav-scroll py-1 mb-4">
+            <nav class="d-flex justify-content-between bg-dark p-2 rounded">
+                <a class="p-2 text-white text-decoration-none" href="#">Ação</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Aventura</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Comédia</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Drama</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Documentário</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Romance</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Suspense</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Sci-fi</a>
+                <a class="p-2 text-white text-decoration-none" href="#">Terror</a>
             </nav>
         </div>
     </div>
     
-    <div class="container">
+    <div class="container mt-2">
         @RenderBody()
     </div>
 
     <footer class="blog-footer">
+        <a href="https://github.com/pedroHenriqueAmaral/telaAzul" class="text-decoration-none">
+            <i class="fa-brands fa-github"></i>
+            Github
+        </a>
         <p>&copy;Tela Azul - 2023</p>
-        <p><a href="#">Voltar ao topo</a></p>
-        <!--
-        <p>Template de blog construído para o 
-            <a href="https://getbootstrap.com/">Bootstrap</a>, 
-            pelo <a href="https://twitter.com/mdo"></a>.</p>
-        <p>
-        -->
+        <!--<p><a href="#">Voltar ao topo</a></p>-->
     </footer>
 
     <!-- 
