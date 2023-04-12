@@ -42,8 +42,17 @@ namespace TelaAzul.Models
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Filme filme = mapper.Map<Filme>(model);
-            
-            filme.Imagem = Upload(model.ArquivoImagem, webHostEnvironment);
+
+            if (model.ArquivoImagem != null)
+                filme.Imagem = Upload(model.ArquivoImagem, webHostEnvironment);
+            else {
+                if (model.Id != 0) {
+                    
+
+                    filme.Imagem  = Selecionar(model.Id).Imagem;
+                }
+            }
+
 
             using (Context contexto = new Context())
             {
