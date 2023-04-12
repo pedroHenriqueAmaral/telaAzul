@@ -23,7 +23,8 @@
     <div class="row">
         <div class="form-group col-12">
             <label for="sinopse" class="form-label" asp-for="Sinopse"></label>
-            <textarea type="text" asp-for="Sinopse" name="sinopse" class="form-control" rows="3" required></textarea>
+            <textarea type="text" asp-for="Sinopse" name="sinopse" 
+                        class="form-control" rows="3" required></textarea>
             <span asp-validation-for="Sinopse" class="alert-danger"></span>
         </div>
     </div>
@@ -31,14 +32,15 @@
     <div class="row">
         <div class="form-group col-4">
             <label for="duracao" class="form-label" asp-for="Duracao"></label>
-            <input type="number" asp-for="Duracao" name="duracao" class="form-control" placeholder="Em minutos." />
+            <input type="number" asp-for="Duracao" name="duracao" class="form-control" 
+                   placeholder="Duração em minutos." required />
             <span asp-validation-for="Duracao" class="alert-danger"></span>
         </div>
 
         <div class="col-4" form-group>
             <label for="audio" class="form-check-label" asp-for="Audio"></label>
-            <select class="form-control" asp-for="Audio">
-                <option>Seleciona o Áudio do Filme</option>
+            <select class="form-control" asp-for="Audio" required>
+                <option disabled>Seleciona o Áudio do Filme</option>
                 <option>Dublado</option>
                 <option>Inglês Legendado</option>
                 <option>Inglês</option>
@@ -48,7 +50,8 @@
 
         <div class="col-4 form-group">
             <label for="genero" class="form-label" asp-for="GeneroId"></label>
-            <select class="form-control" asp-for="GeneroId" asp-items="@ViewBag.listaGeneros">
+            <select class="form-control" asp-for="GeneroId" 
+                    asp-items="@ViewBag.listaGeneros" required>
                 <option>Selecione gênero do filme</option>
             </select>
             <span asp-validation-for="GeneroId" class="alert-danger"></span>
@@ -58,7 +61,7 @@
     <div class="row">
         <div class="form-group col-6">
             <label for="imagem" class="form-label" asp-for="ArquivoImagem"></label>
-            <input type="file" class="form-control" asp-for="ArquivoImagem"  id="imagem" />
+            <input type="file" class="form-control" asp-for="ArquivoImagem" id="imagem" />
             <span asp-validation-for="ArquivoImagem" class="alert-danger"></span>
         </div>
     </div>

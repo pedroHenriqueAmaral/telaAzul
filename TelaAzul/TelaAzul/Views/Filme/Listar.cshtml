@@ -29,8 +29,7 @@
             <th scope="col">Duração (minutos)</th>
             <th scope="col">Áudio</th>
             <th scope="col">Gênero</th>
-            <!--<th scope="col">Alterar</th>
-            <th scope="col">Excluir</th>-->
+            
         </tr>
     </thead>
     <tbody>
@@ -38,12 +37,15 @@
         {
             <tr>
                 <th scope="row">@item.Id</th>
+
+                <td><img src="~/Imagens/@item.Imagem" asp-append-version="true" class="rounded-circle" height="40"></td>
+                
                 <td>@item.Titulo</td>
                 <td>@item.Sinopse</td>
                 <td>@item.Duracao</td>
                 <td>@item.Audio</td>
+                
                 <td>@item.Genero.Nome</td>
-                <td><img src="~/Imagens/@item.Imagem" asp-append-version="true" class="rounded-circle" height="40"></td>
                 
                 <td>
                     <a href="~/Filme/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>

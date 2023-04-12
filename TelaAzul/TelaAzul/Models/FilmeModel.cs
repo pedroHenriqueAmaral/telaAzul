@@ -12,47 +12,44 @@ namespace TelaAzul.Models
         public int Id { get; set; }
 
         [Display(Name = "Título")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
+        //[Required(ErrorMessage = "Informe o título do filme")]
         [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Titulo { get; set; }
 
         [Display(Name = "Sinopse")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
+        //[Required(ErrorMessage = "Informe a sinopse do filme")]
         [MaxLength(250, ErrorMessage = "Máximo 250 Caractéres")]
         public string ? Sinopse { get; set; }
 
         public string ? Imagem { get; set; }
         [Display(Name = "Imagem de Cartaz")]
-        [Required(ErrorMessage = "Selecione uma Imagem")]
         public IFormFile ? ArquivoImagem { get; set; }
 
         [Display(Name = "Duração do Filme")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
+        //[Required(ErrorMessage = "Informe a duração do filme")]
         public int ? Duracao { get; set; }
 
         [Display(Name = "Áudio")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
+        //[Required(ErrorMessage = "Informe o tipo de áudio do filme")]
         public string ? Audio { get; set; }
 
         [Display(Name = "Gênero")]
+        //[Required(ErrorMessage = "Informe o gênero do filme")]
         public int GeneroId { get; set; }
-        public GeneroModel ? Genero { get; set; }
+        public GeneroModel Genero { get; set; }
 
         public FilmeModel Salvar(FilmeModel model, IWebHostEnvironment webHostEnvironment)
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Filme filme = mapper.Map<Filme>(model);
 
-            if (model.ArquivoImagem != null)
+            // Validação do Upload de Imagem
+            if(model.ArquivoImagem != null)
                 filme.Imagem = Upload(model.ArquivoImagem, webHostEnvironment);
-            else {
-                if (model.Id != 0) {
-                    
-
+            else { 
+                if (model.Id != 0) // alterando o cadastro do filme
                     filme.Imagem  = Selecionar(model.Id).Imagem;
-                }
             }
-
 
             using (Context contexto = new Context())
             {
@@ -105,7 +102,6 @@ namespace TelaAzul.Models
                 FilmeRepo repo = new FilmeRepo(contexto);
                 Filme filme = repo.Recuperar(f => f.Id == id);
                 repo.Excluir(filme);
-                
                 contexto.SaveChanges();
             }
         }

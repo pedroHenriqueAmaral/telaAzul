@@ -36,7 +36,7 @@ namespace TelaAzul.Controllers
                     filmodel.Salvar(model, webHostEnvironment);
 
                     ViewBag.classe = "alert-success";
-                    ViewBag.msg = "Salvo com sucesso ";
+                    ViewBag.msg = model.Titulo + " cadastrado com sucesso!";
                 } catch (Exception ex) 
                 {
                     ViewBag.classe = "alert-danger";
@@ -88,20 +88,20 @@ namespace TelaAzul.Controllers
 
         public IActionResult Excluir(int id)
         {
-            FilmeModel filmodel = new FilmeModel();
-
+            FilmeModel model = new FilmeModel();
             try
             {
-                filmodel.Excluir(id);
+                model.Excluir(id);
 
                 ViewBag.classe = "alert-success";
-                ViewBag.msg = "Excluido com sucesso.";
+                ViewBag.msg = model.Titulo + " excluido com sucesso.";
             } catch (Exception ex)
             {
                 ViewBag.classe = "alert-danger";
                 ViewBag.msg = "Erro: " + ex.Message;
             }
-            return View("listar", filmodel.Listar());
+            
+            return View("listar", model.Listar());
         }
     }
 }

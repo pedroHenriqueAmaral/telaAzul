@@ -12,8 +12,8 @@
         /* Relacionamentos */
         
         // Lado de Um
-        public int ? GeneroId { get; set; }
-        public virtual Genero ? Genero { get; set; }
+        public int GeneroId { get; set; }
+        public virtual Genero Genero { get; set; }
 
         // Lado Muitos
         public virtual ICollection<Studio> ? Studios { get; set; }
