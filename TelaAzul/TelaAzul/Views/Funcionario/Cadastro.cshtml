@@ -1,0 +1,73 @@
+﻿@model TelaAzul.Models.FuncionarioModel
+
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cadastro de Funcionário</h1>
+
+<form method="POST" asp-controller="Funcionario" asp-action="Salvar">
+    <div class="row">
+        <div class="col-4 form-group">
+            <label for="id" class="form-label" asp-for="Id"></label>
+            <input type="text" id="id" name="id" class="form-control" asp-for="Id" readonly />
+            <span asp-validation-for="Id" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 form-group">
+            <label for="nome" class="form-label" asp-for="Nome"></label>
+            <input type="text" id="nome" name="nome" class="form-control" asp-for="Nome" required />
+            <span asp-validation-for="Nome" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 form-group">
+            <label for="dataNascimento" class="form-label" asp-for="Data_Nascimento"></label>
+            <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" asp-for="Data_Nascimento" required />
+            <span asp-validation-for="Data_Nascimento" class="alert-danger" />
+        </div>
+
+        <div class="col-5 form-group">
+            <label for="dataAdmissao" class="form-label" asp-for="Data_Admissao"></label>
+            <input type="date" class="form-control" id="dataAdmissao" name="dataAdmissao" asp-for="Data_Admissao" required />
+            <span asp-validation-for="Data_Admissao" class="alert-danger" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 form-group">
+            <label for="cargo" class="form-label" asp-for="Cargo"></label>
+            <input type="text" class="form-control" id="cargo" name="cargo" asp-for="Cargo" required />
+            <span asp-validation-for="Cargo" class="alert-danger"></span>
+        </div>
+
+        <div class="col-5 form-group">
+            <label for="salario" class="form-label" asp-for="Salario_Fixo"></label>
+            <input type="number" class="form-control" id="salario" name="salario" asp-for="Salario_Fixo" required />
+            <span asp-validation-for="Salario_Fixo" class="alert-danger"></span>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6 form-group">
+            <label for="email" class="form-label" asp-for="Email"></label>
+            <input type="email" class="form-control" asp-for="Email" name="email" id="email" required />
+            <span asp-validation-for="Email" class="alert-danger"></span>
+        </div>
+
+        <div class="col-6" form-group>
+            <label for="senha" class="form-label" asp-for="Senha"></label>
+            <input type="password" class="form-control" asp-for="Senha" name="senha" id="senha" required />
+            <span asp-validation-for="Senha" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <div class="row m-4">
+        <input type="submit" class="btn btn-dark" value="Cadastrar" />
+        <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+    </div>
+</form>

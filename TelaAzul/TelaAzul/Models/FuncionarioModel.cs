@@ -31,79 +31,79 @@ namespace TelaAzul.Models
 
         [Display(Name = "Senha")]
         public String? Senha { get; set; }
-        public ClienteModel ValidaLogin(string email, string senha)
+        
+        public FuncionarioModel ValidaLogin(String email, String senha)
         {
-            ClienteModel? model = null;
+            FuncionarioModel ? model = null;
 
-            using (Context contexto = new Context())
+            using(Context contexto = new Context())
             {
                 var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
-                ClienteRepo repo = new ClienteRepo(contexto);
-                Cliente cli = repo.Recuperar(c => c.Email == email && c.Senha == senha);
-
-                model = mapper.Map<ClienteModel>(cli);
+                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                Funcionario func = repo.Recuperar(c => c.Email == email && c.Senha == senha);
+                model = mapper.Map<FuncionarioModel>(func);
             }
             return model;
         }
 
-        public ClienteModel Salvar(ClienteModel model)
+        public FuncionarioModel Salvar(FuncionarioModel model)
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            Cliente cliente = mapper.Map<Cliente>(model);
+            Funcionario func = mapper.Map<Funcionario>(model);
 
-            using (Context contexto = new Context())
+            using(Context contexto = new Context())
             {
-                ClienteRepo repo = new ClienteRepo(contexto);
+                FuncionarioRepo repo = new FuncionarioRepo(contexto);
 
-                if (model.Id == 0)
-                    repo.Inserir(cliente);
+                if(model.Id == 0)
+                    repo.Inserir(func);
                 else
-                    repo.Alterar(cliente);
+                    repo.Alterar(func);
 
                 contexto.SaveChanges();
             }
-            model.Id = cliente.Id;
+            model.Id = func.Id;
             return model;
         }
 
-        public ClienteModel Selecionar(int id)
+        public FuncionarioModel Selecionar(int id)
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            ClienteModel? model = null;
+            FuncionarioModel ? model = null;
 
-            using (Context contexto = new Context())
+            using(Context contexto = new Context())
             {
-                ClienteRepo repo = new ClienteRepo(contexto);
-                Cliente cli = repo.Recuperar(c => c.Id == id);
+                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                Funcionario func = repo.Recuperar(c => c.Id == id);
 
-                model = mapper.Map<ClienteModel>(cli);
+                model = mapper.Map<FuncionarioModel>(func);
             }
             return model;
         }
 
-        public List<ClienteModel> Listar()
+        public List<FuncionarioModel> Listar()
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            List<ClienteModel>? listamodel = null;
+            List<FuncionarioModel> ? listaModel = null;
 
             using (Context contexto = new Context())
             {
-                ClienteRepo repo = new ClienteRepo(contexto);
-                List<Cliente> lista = repo.ListarTodos();
-                listamodel = mapper.Map<List<ClienteModel>>(lista);
+                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                List<Funcionario> lista = repo.ListarTodos();
+                listaModel = mapper.Map<List<FuncionarioModel>>(lista);
             }
-            return listamodel;
+            return listaModel;
         }
 
         public void Excluir(int id)
         {
             using (Context contexto = new Context())
             {
-                ClienteRepo repo = new ClienteRepo(contexto);
-                Cliente cliente = repo.Recuperar(c => c.Id == id);
+                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                Funcionario func = repo.Recuperar(c => c.Id == id);
 
-                repo.Excluir(cliente);
+                repo.Excluir(func);
                 contexto.SaveChanges();
             }
         }

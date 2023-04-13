@@ -22,6 +22,9 @@ namespace TelaAzul
 
                 cfg.CreateMap<Cliente, ClienteModel>();
                 cfg.CreateMap<ClienteModel, Cliente>();
+
+                cfg.CreateMap<Funcionario, FuncionarioModel>();
+                cfg.CreateMap<FuncionarioModel, Funcionario>();
             });
             return config;
         }
