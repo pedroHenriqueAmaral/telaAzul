@@ -6,36 +6,36 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TelaAzul.Models
 {
-    public class ClienteModel
+    public class FuncionarioModel
     {
         [Display(Name = "Código")]
         public int Id { get; set; }
 
         [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
-        public string ? Nome { get; set; }
+        public string? Nome { get; set; }
 
         [Display(Name = "Data de Nascimento")]
         public DateTime Data_Nascimento { get; set; }
 
-        [Display(Name = "Tipo")]
-        //[Required(ErrorMessage = "Campo Obrigatório")]
-        public string ? Tipo_Cliente { get; set; }
+        [Display(Name = "Data de Admissão")]
+        public DateTime Data_Admissao{ get; set; }
+
+        [Display(Name = "Cargo")]
+        public String ? Cargo { get; set; }
+
+        [Display(Name = "Salário Fixo")]
+        public float Salario_Fixo { get; set; }
 
         [Display(Name = "E-mail")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
-        public string ? Email { get; set; }
+        public String? Email { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [MaxLength(30, ErrorMessage = "Máximo 30 Caractéres")]
-        public string ? Senha { get; set; }
-
-
+        [Display(Name = "Senha")]
+        public String? Senha { get; set; }
         public ClienteModel ValidaLogin(string email, string senha)
         {
-            ClienteModel ? model = null;
+            ClienteModel? model = null;
 
-            using(Context contexto = new Context())
+            using (Context contexto = new Context())
             {
                 var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
@@ -47,12 +47,12 @@ namespace TelaAzul.Models
             return model;
         }
 
-        public ClienteModel Salvar(ClienteModel model) 
+        public ClienteModel Salvar(ClienteModel model)
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
             Cliente cliente = mapper.Map<Cliente>(model);
 
-            using(Context contexto = new Context())
+            using (Context contexto = new Context())
             {
                 ClienteRepo repo = new ClienteRepo(contexto);
 
@@ -70,9 +70,9 @@ namespace TelaAzul.Models
         public ClienteModel Selecionar(int id)
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            ClienteModel ? model = null;
-            
-            using(Context contexto = new Context())
+            ClienteModel? model = null;
+
+            using (Context contexto = new Context())
             {
                 ClienteRepo repo = new ClienteRepo(contexto);
                 Cliente cli = repo.Recuperar(c => c.Id == id);
@@ -85,9 +85,9 @@ namespace TelaAzul.Models
         public List<ClienteModel> Listar()
         {
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
-            List<ClienteModel> ? listamodel = null;
+            List<ClienteModel>? listamodel = null;
 
-            using(Context contexto = new Context())
+            using (Context contexto = new Context())
             {
                 ClienteRepo repo = new ClienteRepo(contexto);
                 List<Cliente> lista = repo.ListarTodos();
@@ -98,15 +98,15 @@ namespace TelaAzul.Models
 
         public void Excluir(int id)
         {
-            using(Context contexto = new Context())
+            using (Context contexto = new Context())
             {
                 ClienteRepo repo = new ClienteRepo(contexto);
                 Cliente cliente = repo.Recuperar(c => c.Id == id);
-                
+
                 repo.Excluir(cliente);
                 contexto.SaveChanges();
             }
         }
-        
+
     }
 }
