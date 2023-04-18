@@ -46,6 +46,38 @@ namespace TelaAzul.Controllers
             return RedirectToAction("Login", "Cliente");
         }
 
+        public IActionResult Listar()
+        {
+            ClienteModel model = new ClienteModel();
+            List<ClienteModel> lista = model.Listar();
+            return View(lista);
+        }
+
+        public IActionResult PreAlterar(int id) 
+        {
+            ClienteModel model = new ClienteModel();
+            return View("Cadastro", model.Selecionar(id));
+        }
+
+        public IActionResult Excluir(int id)
+        {
+            ClienteModel model = new ClienteModel();
+
+            try
+            {
+                model.Excluir(id);
+
+                ViewBag.classe = "alert-success";
+                ViewBag.msg = model.Nome + " excluido com sucesso.";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.classe = "alert-danger";
+                ViewBag.msg = "Erro: " + ex.Message;
+            }
+            return View("Listar", model.Listar());
+        }
+
         [HttpPost]
         public IActionResult Salvar(ClienteModel model)
         {
@@ -53,23 +85,24 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    ClienteModel climodel = new ClienteModel();
-                    climodel.Salvar(model);
+                    ClienteModel cliModel = new ClienteModel();
+                    cliModel.Salvar(model);
 
                     ViewBag.classe = "alert-success";
-                    ViewBag.msg = "Cadastrado com sucesso. ";
-                } catch (Exception ex)
-                {
-                    ViewBag.msg = "Erro: " + ex.Message + " | " + ex.InnerException;
-                    ViewBag.classe = "alert-danger" ;
+                    ViewBag.msg = model.Nome +  " salvo com sucesso ";
                 }
-            } 
+                catch (Exception ex)
+                {
+                    ViewBag.classe = "alert.danger";
+                    ViewBag.msg = "Erro: " + ex.Message + " | " + ex.InnerException;
+                }
+            }
             else
             {
-                ViewBag.msg = "Erro: Verifique os campos. ";
                 ViewBag.classe = "alert-danger";
+                ViewBag.msg = "Erro, verifique os campos";
             }
-            return View("cadastro", model);
+            return View("Cadastro", model);
         }
     }
 }
