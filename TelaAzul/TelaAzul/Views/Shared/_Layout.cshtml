@@ -18,8 +18,9 @@
                 <a class="navbar-brand text-white text-decoration-none" 
                     asp-controller="Home" asp-action="Index">Tela Azul</a>
 
-                <button type="button" class="navbar-toggler" <!-- Menu Hamburguer --> 
-                        data-bs-toggle="collapse" data-bs-target="#menuNavegacao" aria-controls="menuNavegacao"
+                <!-- Menu Hamburguer -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" 
+                        data-bs-target="#menuNavegacao" aria-controls="menuNavegacao"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,6 +42,24 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" asp-controller="Filme" asp-action="Listar">Listar</a></li>
                                 <li><a class="dropdown-item" asp-controller="Filme" asp-action="Cadastro">Cadastrar</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light dropdown-toggle" role="button" href="#" aria-expanded="false"
+                               data-bs-toggle="dropdown">Funcionários</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Funcionario" asp-action="Listar">Listar</a></li>
+                                <li><a class="dropdown-item" asp-controller="Funcionario" asp-action="Cadastro">Cadastrar</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light dropdown-toggle" role="button" href="#" aria-expanded="false"
+                               data-bs-toggle="dropdown">Clientes</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Listar">Listar</a></li>
+                                <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Cadastro">Cadastrar</a></li>
                             </ul>
                         </li>
                     </ul>

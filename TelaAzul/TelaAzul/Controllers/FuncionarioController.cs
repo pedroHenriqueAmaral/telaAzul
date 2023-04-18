@@ -17,8 +17,8 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    FuncionarioModel climodel = new FuncionarioModel();
-                    model.Salvar(model);
+                    FuncionarioModel funcModel = new FuncionarioModel();
+                    funcModel.Salvar(model);
 
                     ViewBag.classe = "alert-success";
                     ViewBag.msg = model.Nome + " cadastrado com sucesso ";
@@ -35,6 +35,13 @@ namespace TelaAzul.Controllers
                 ViewBag.classe = "alert-danger";
             }
             return View("Cadastro", model);
+        }
+
+        public IActionResult Listar()
+        {
+            FuncionarioModel model = new FuncionarioModel();
+            List<FuncionarioModel> lista = model.Listar();
+            return View(lista);
         }
 
         public IActionResult Login()

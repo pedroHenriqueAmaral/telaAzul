@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TelaAzul.Models;
 
@@ -16,12 +15,14 @@ namespace TelaAzul.Controllers
 
         public IActionResult Cadastro()
         {
+            // Carregar o input select com os Gêneros cadastrados
             List<GeneroModel> lista = (new GeneroModel()).Listar();
-            ViewBag.listaGeneros = lista.Select(g => new SelectListItem()
+            ViewBag.listaGeneros = lista.Select(gen => new SelectListItem()
             {
-                Value = g.Id.ToString(),
-                Text = g.Nome
+                Value = gen.Id.ToString(),
+                Text = gen.Nome
             });
+
             return View(new FilmeModel());
         }
 
@@ -36,27 +37,28 @@ namespace TelaAzul.Controllers
                     filmodel.Salvar(model, webHostEnvironment);
 
                     ViewBag.classe = "alert-success";
-                    ViewBag.msg = model.Titulo + " cadastrado com sucesso!";
-                } catch (Exception ex) 
+                    ViewBag.msg = "Filme " + model.Titulo + " cadastrado com sucesso!";
+                } 
+                catch (Exception ex) 
                 {
                     ViewBag.classe = "alert-danger";
                     ViewBag.msg = "Erro: " + ex.Message + " | " + ex.InnerException;
                 }
-            } else
+            } 
+            else
             {
                 ViewBag.classe = "alert-danger";
                 ViewBag.classe = "Erro: Confira os campos do formulário. ";
             }
             
-            // Colocar os gêneros em um dropdown no cadastro do filme
             List<GeneroModel> lista = (new GeneroModel()).Listar();
-            ViewBag.listaGeneros = lista.Select(g => new SelectListItem()
+            ViewBag.listaGeneros = lista.Select(gen => new SelectListItem()
             {
-                Value = g.Id.ToString(),
-                Text = g.Nome
+                Value = gen.Id.ToString(),
+                Text = gen.Nome
             });
 
-            return View("cadastro", model);
+            return View("Cadastro", model);
         }
 
         public IActionResult Listar()
@@ -65,7 +67,7 @@ namespace TelaAzul.Controllers
             List<FilmeModel> lista = filmodel.Listar();
 
             GeneroModel genm = new GeneroModel();
-            foreach (var item in lista)
+            foreach(var item in lista)
             {
                 item.Genero = genm.Selecionar(item.GeneroId);
             }
@@ -101,7 +103,7 @@ namespace TelaAzul.Controllers
                 ViewBag.msg = "Erro: " + ex.Message;
             }
             
-            return View("listar", model.Listar());
+            return View("Listar", model.Listar());
         }
     }
 }

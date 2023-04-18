@@ -12,12 +12,10 @@ namespace TelaAzul.Models
         public int Id { get; set; }
 
         [Display(Name = "Título")]
-        //[Required(ErrorMessage = "Informe o título do filme")]
         [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Titulo { get; set; }
 
         [Display(Name = "Sinopse")]
-        //[Required(ErrorMessage = "Informe a sinopse do filme")]
         [MaxLength(250, ErrorMessage = "Máximo 250 Caractéres")]
         public string ? Sinopse { get; set; }
 
@@ -26,15 +24,13 @@ namespace TelaAzul.Models
         public IFormFile ? ArquivoImagem { get; set; }
 
         [Display(Name = "Duração do Filme")]
-        //[Required(ErrorMessage = "Informe a duração do filme")]
         public int ? Duracao { get; set; }
 
         [Display(Name = "Áudio")]
-        //[Required(ErrorMessage = "Informe o tipo de áudio do filme")]
         public string ? Audio { get; set; }
 
         [Display(Name = "Gênero")]
-        //[Required(ErrorMessage = "Informe o gênero do filme")]
+        [Required(ErrorMessage = "Gênero inválido.\nSelecione ou cadastre um gênero.")]
         public int GeneroId { get; set; }
         public GeneroModel Genero { get; set; }
 
@@ -47,11 +43,11 @@ namespace TelaAzul.Models
             if(model.ArquivoImagem != null)
                 filme.Imagem = Upload(model.ArquivoImagem, webHostEnvironment);
             else { 
-                if (model.Id != 0) // alterando o cadastro do filme
+                if (model.Id != 0) // alterando o filme já cadastrado
                     filme.Imagem  = Selecionar(model.Id).Imagem;
             }
 
-            using (Context contexto = new Context())
+            using(Context contexto = new Context())
             {
                 FilmeRepo repo = new FilmeRepo(contexto);
 
@@ -62,14 +58,13 @@ namespace TelaAzul.Models
                 
                 contexto.SaveChanges();
             }
-
             model.Id = filme.Id;
             return model;
         }
 
         public List<FilmeModel> Listar()
         {
-            List<FilmeModel> listamodel = null;
+            List<FilmeModel> ? listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
             using(Context contexto = new Context())

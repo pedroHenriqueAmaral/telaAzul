@@ -1,12 +1,8 @@
-﻿    @model IEnumerable<FilmeModel>
-
+﻿@model IEnumerable<FilmeModel>
 @{
-    ViewData["Title"] = "listar";
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Lista de Filmes</h1>
-
-<span class="alert @ViewBag.classe">@ViewBag.msg</span>
 
 <script>
     function confirmaExclusao(id) {
@@ -16,20 +12,25 @@
     }
 </script>
 
-<a href="~/Filme/Cadastro" class="btn btn-success">
-    Adicionar Filme
-</a>
+<h1>Lista de Filmes</h1>
+
+<span class="alert @ViewBag.classe">@ViewBag.msg</span>
+<br />
+
+<a href="~/Filme/Cadastro" class="btn btn-success m-2">Cadastrar Filme</a>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Código</th>
+            <th scope="col">Imagem</th>
             <th scope="col">Título</th>
             <th scope="col">Sinopse</th>
             <th scope="col">Duração (minutos)</th>
             <th scope="col">Áudio</th>
             <th scope="col">Gênero</th>
-            
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -37,16 +38,12 @@
         {
             <tr>
                 <th scope="row">@item.Id</th>
-
                 <td><img src="~/Imagens/@item.Imagem" asp-append-version="true" class="rounded-circle" height="40"></td>
-                
                 <td>@item.Titulo</td>
                 <td>@item.Sinopse</td>
                 <td>@item.Duracao</td>
                 <td>@item.Audio</td>
-                
                 <td>@item.Genero.Nome</td>
-                
                 <td>
                     <a href="~/Filme/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>
                 </td>
