@@ -10,13 +10,13 @@ namespace Entidades
     {
         public Genero() 
         {
-            this.Filmes = new HashSet<Filme>();
+            this.Filme = new HashSet<Filme>();
         }
 
         public int Id { get; set; }
         public string ? Nome { get; set; } // Terror, Ação, Aventura...
 
-        /* Relacionamento | Lado de "Muitos" */
-        public virtual ICollection<Filme> ? Filmes { get; set; }
+        /* Relacionamento | Lado de Muitos */
+        public virtual ICollection<Filme> ? Filme { get; set; }
     }
 }

@@ -25,6 +25,15 @@ namespace TelaAzul
 
                 cfg.CreateMap<Funcionario, FuncionarioModel>();
                 cfg.CreateMap<FuncionarioModel, Funcionario>();
+
+                cfg.CreateMap<Status, StatusModel>();
+                cfg.CreateMap<StatusModel, Status>();
+
+                cfg.CreateMap<Compra, CompraModel>();
+                cfg.CreateMap<CompraModel, Compra>();
+
+                cfg.CreateMap<ComprasFilmes, ComprasFilmesModel>();
+                cfg.CreateMap<ComprasFilmesModel, ComprasFilmes>();
             });
             return config;
         }

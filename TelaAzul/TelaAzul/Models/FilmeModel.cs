@@ -29,10 +29,12 @@ namespace TelaAzul.Models
         [Display(Name = "Áudio")]
         public string ? Audio { get; set; }
 
+        public Decimal Valor { get; set; }
+
         [Display(Name = "Gênero")]
         [Required(ErrorMessage = "Gênero inválido.\nSelecione ou cadastre um gênero.")]
         public int GeneroId { get; set; }
-        public GeneroModel Genero { get; set; }
+        public GeneroModel ? Genero { get; set; }
 
         public FilmeModel Salvar(FilmeModel model, IWebHostEnvironment webHostEnvironment)
         {

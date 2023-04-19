@@ -2,22 +2,24 @@
 {
     public class Filme
     {
+        public Filme()
+        {
+            this.ComprasFilmes = new HashSet<ComprasFilmes>();
+        }
+
         public int Id { get; set; }
         public string ? Titulo { get; set; }
         public string ? Imagem { get; set; }
         public string ? Sinopse { get; set; }
         public string ? Duracao { get; set; } // em minutos
         public string ? Audio { get; set; } // dublado ou legendado
-
-        /* Relacionamentos */
+        public Decimal Valor { get; set; }
         
-        // Lado de Um
+        /* Relacionamento | Lado de Um */
         public int GeneroId { get; set; }
-        public virtual Genero Genero { get; set; }
+        public virtual Genero ? Genero { get; set; }
 
-        // Lado Muitos
-        public virtual ICollection<Studio> ? Studios { get; set; }
-
-        // public virtual ICollection<FilmeAtor> FilmeAtores { get; set; }
+        /* Relacionamento Muitos pra Muitos com Compra */
+        public virtual ICollection<ComprasFilmes> ComprasFilmes { get; set; }
     }
 }

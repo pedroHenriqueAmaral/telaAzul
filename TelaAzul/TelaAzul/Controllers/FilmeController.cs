@@ -6,7 +6,7 @@ namespace TelaAzul.Controllers
 {
     public class FilmeController : Controller
     {
-        // Para Upload de Imagem
+        // Upload de Imagem
         private readonly IWebHostEnvironment ? webHostEnvironment;
         public FilmeController(IWebHostEnvironment hostEnvironment)
         {
@@ -15,7 +15,7 @@ namespace TelaAzul.Controllers
 
         public IActionResult Cadastro()
         {
-            // Carregar o input select com os Gêneros cadastrados
+            // Carrega o input select com os Gêneros cadastrados
             List<GeneroModel> lista = (new GeneroModel()).Listar();
             ViewBag.listaGeneros = lista.Select(gen => new SelectListItem()
             {
@@ -33,7 +33,7 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    FilmeModel filmodel = new FilmeModel();
+                    var filmodel = new FilmeModel();
                     filmodel.Salvar(model, webHostEnvironment);
 
                     ViewBag.classe = "alert-success";
@@ -66,31 +66,31 @@ namespace TelaAzul.Controllers
             FilmeModel filmodel = new FilmeModel();
             List<FilmeModel> lista = filmodel.Listar();
 
-            GeneroModel genm = new GeneroModel();
+            GeneroModel generoModel = new GeneroModel();
             foreach(var item in lista)
             {
-                item.Genero = genm.Selecionar(item.GeneroId);
+                item.Genero = generoModel.Selecionar(item.GeneroId);
             }
             return View(lista);
         }
 
         public IActionResult PreAlterar(int id)
         {
-            FilmeModel filmodel = new FilmeModel();
+            var filmodel = new FilmeModel();
 
             List<GeneroModel> lista = (new GeneroModel()).Listar();
-            ViewBag.listaGeneros = lista.Select(g => new SelectListItem()
+            ViewBag.listaGeneros = lista.Select(generos => new SelectListItem()
             {
-                Value = g.Id.ToString(),
-                Text = g.Nome
+                Value = generos.Id.ToString(),
+                Text = generos.Nome
             });
 
-            return View("cadastro", filmodel.Selecionar(id));
+            return View("Cadastro", filmodel.Selecionar(id));
         }
 
         public IActionResult Excluir(int id)
         {
-            FilmeModel model = new FilmeModel();
+            var model = new FilmeModel();
             try
             {
                 model.Excluir(id);
