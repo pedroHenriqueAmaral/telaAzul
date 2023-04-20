@@ -8,9 +8,9 @@ namespace Entidades
 {
     public class Compra
     {
-        public Compras()
+        public Compra()
         {
-            this.ComprasFilmes = new HashSet<Compra>();
+            this.ComprasFilmes = new HashSet<ComprasFilmes>();
         }
 
         public int Id { get; set; }
@@ -18,7 +18,7 @@ namespace Entidades
         public Decimal Valor { get; set; }
 
         public int StatusId { get; set; }
-        public virtual Status Status { get; set; }
+        public virtual Status ? Status { get; set; }
 
         public virtual ICollection<ComprasFilmes> ComprasFilmes { get; set; }
 

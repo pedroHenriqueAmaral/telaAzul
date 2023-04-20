@@ -25,13 +25,14 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    GeneroModel genmodel = new GeneroModel();
+                    var genmodel = new GeneroModel();
                     genmodel.Salvar(model);
 
                     ViewBag.classe = "alert-success";
-                    ViewBag.msg = "Salvo com sucesso ";
+                    ViewBag.msg = "Gênero " + model.Nome + " foi salvo com sucesso ";
 
-                } catch (Exception ex)
+                } 
+                catch(Exception ex)
                 {
                     ViewBag.classe = "alert.danger";
                     ViewBag.msg = "Erro: " + ex.Message + " | " + ex.InnerException;
@@ -43,38 +44,39 @@ namespace TelaAzul.Controllers
                 ViewBag.msg = "Erro, verifique os campos";
             }
 
-            return View("cadastro", model);
+            return View("Cadastro", model);
         }
 
         public IActionResult Listar()
         {
-            GeneroModel genmodel = new GeneroModel();
+            var genmodel = new GeneroModel();
             List<GeneroModel> lista = genmodel.Listar();
             return View(lista); 
         }
 
-        public IActionResult PreAlterar(int id) // traz a tela do cadastro com um ID já cadastro para alterar
+        // manda para tela do cadastro com o ID para alterar (!= 0)
+        public IActionResult PreAlterar(int id) 
         {
-            GeneroModel model = new GeneroModel();
-            return View("cadastro", model.Selecionar(id));
+            var model = new GeneroModel();
+            return View("Cadastro", model.Selecionar(id));
         }
 
         public IActionResult Excluir(int id)
         {
-            GeneroModel model = new GeneroModel();
+            var model = new GeneroModel();
 
             try
             {
                 model.Excluir(id);
 
                 ViewBag.classe = "alert-success";
-                ViewBag.msg = "Excluido com sucesso.";
+                ViewBag.msg = "Gênero excluído com sucesso. ";
             } catch(Exception ex)
             {
                 ViewBag.classe = "alert-danger";
                 ViewBag.msg = "Erro: " + ex.Message;
             }
-            return View("listar", model.Listar());
+            return View("Listar", model.Listar());
         }
     }
 }
