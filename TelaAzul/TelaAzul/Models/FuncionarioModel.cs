@@ -39,7 +39,7 @@ namespace TelaAzul.Models
 
             using (Context contexto = new Context())
             {
-                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                var repo = new FuncionarioRepo(contexto);
 
                 if (model.Id == 0)
                     repo.Inserir(func);

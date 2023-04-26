@@ -11,16 +11,16 @@
         <div class="col-12 col-md-6 form-group mt-3">
             <label for="id" class="form-label" asp-for="Id"></label>
             <input type="text" id="id" class="form-control" asp-for="Id" readonly />
-            <!--<span asp-validation-for="Id" class="alert-danger"></span>-->
+            <span asp-validation-for="Id" class="alert-danger"></span>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12 col-sm-6 form-group mt-3">
             <label for="nome" class="form-label" asp-for="Nome"></label>
-            <input type="text" id="nome" class="form-control" asp-for="Nome" required
+            <input type="text" id="nome" class="form-control" asp-for="Nome"
                 placeholder="Ex: Ação, Aventura, Romance, Suspense, Terror..." /> 
-            <!--<span asp-validation-for="Nome" class="alert-danger"></span>-->
+            <span asp-validation-for="Nome" class="alert-danger"></span>
         </div>
     </div>
 

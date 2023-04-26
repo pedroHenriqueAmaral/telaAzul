@@ -14,8 +14,9 @@
 
 <h1>Lista de Clientes</h1>
 
-<span class="alert @ViewBag.classe">@ViewBag.msg</span>
 <br />
+<span class="alert @ViewBag.classe">@ViewBag.msg</span>
+
 
 <a href="~/Cliente/Cadastro" class="btn btn-success m-2">Cadastrar Cliente</a>
 
@@ -24,9 +25,8 @@
         <tr>
             <th scope="col">Código</th>
             <th scope="col">Nome</th>
-            <td scope="col">Data de Nascimento</td>
+            <th scope="col">Data de Nascimento</th>
             <th scope="col">E-mail</th>
-            <!--<th scope="col">Tipo</th>-->
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -39,12 +39,11 @@
                 <td>@item.Nome</td>
                 <td>@item.Data_Nascimento.ToString()</td>
                 <td>@item.Email</td>
-                <!--<td>@item.Tipo_Cliente</td>-->
                 <td>
                     <a href="~/Filme/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-danger" onclick="confirmaExclusao(@item.Id)">Excluir</a>
+                    <a class="btn btn-danger" onclick="confirmaExclusao(@item.Id)">Excluir</a>
                 </td>
             </tr>
         }

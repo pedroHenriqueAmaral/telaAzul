@@ -17,7 +17,7 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    FuncionarioModel funcModel = new FuncionarioModel();
+                    var funcModel = new FuncionarioModel();
                     funcModel.Salvar(model);
 
                     ViewBag.classe = "alert-success";

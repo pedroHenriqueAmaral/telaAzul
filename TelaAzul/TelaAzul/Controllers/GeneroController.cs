@@ -5,14 +5,6 @@ namespace TelaAzul.Controllers
 {
     public class GeneroController : Controller
     {
-        /*
-        public IActionResult Index()
-        {
-            // /Controller/Action -> Controller retorna View do mesmo nome da Action se não tiver definido no parâmetro.
-            return View();
-        }
-        */
-
         public IActionResult Cadastro()
         {
             return View(new GeneroModel());

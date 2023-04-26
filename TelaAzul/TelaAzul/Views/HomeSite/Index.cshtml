@@ -18,7 +18,7 @@
     <div class="row mb-2"><!-- Cards de Filmes Cadastrados -->
         @foreach(var item in Model)
         {
-        <div class="card bg-primary mb-3" style="width: 18rem;">
+        <div class="card bg-primary m-3" style="width: 18rem;">
             <img src="~/Imagens/@item.Imagem" class="card-img-top" alt="Imagem Cartaz do Filme" />
             <div class="card-body">
                 <h3 class="card-title">
@@ -27,7 +27,7 @@
                     </a>
                 </h3>
                 <p class="card-text text-white">@item.Sinopse</p>
-                <a class="btn btn-dark" href="~/HomeSite/Detalhes/@item.Id">Detalhes</a>
+                <a class="btn btn-dark" href="~/HomeSite/Detalhes/@item.Id">Mais informações</a>
             </div>
         </div>
         }

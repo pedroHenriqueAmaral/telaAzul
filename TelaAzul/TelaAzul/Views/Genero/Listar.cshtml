@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<GeneroModel>
 @{
     ViewData["Title"] = "Listar";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <script>
@@ -14,7 +14,7 @@
 
 <h1>Listar Gêneros</h1>
 
-<a href="~/Genero/Cadastro" class="btn btn-success">Cadastrar Gênero</a>
+<a href="~/Genero/Cadastro" class="btn btn-success">Cadastrar Novo Gênero</a>
 
 <span class="alert @ViewBag.classe">@ViewBag.msg</span>
 
@@ -23,10 +23,8 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            @for(var i = 0; i <= 6; i++)
-            {
-                <th scope="col"></th>
-            }
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -35,7 +33,6 @@
             <tr>
                 <th scope="row">@item.Id</th>   
                 <td scope="row">@item.Nome</td>
-                <td colspan="5"></td>
                 <td>
                     <a href="~/Genero/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>
                 </td>
