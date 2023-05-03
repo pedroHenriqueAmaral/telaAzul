@@ -29,11 +29,16 @@ namespace Contexto
         {
             base.OnConfiguring(optionsBuilder);
 
-            var Conn = @"Server=LYDIA-1;
-                         DataBase=telaAzulLv5;
+            var Conn = @"Server=LYDIA-2;
+                         DataBase=telaAzulLv7;
                          integrated security=true;
                          Trust Server Certificate=true";
 
+            var ConnRemoto = @"Server=ServerName;
+                               DataBase=Banco;
+                               user id = usuário;
+                               password = senha";
+                                
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(Conn);
