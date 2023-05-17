@@ -31,5 +31,18 @@ namespace TelaAzul.Models
             model.Id = compra.Id;
             return model;
         }
+
+        public CompraModel Selecionar(int id)
+        {
+            CompraModel ? model = null;
+            var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
+
+            using var contexto = new Context();
+            var repo = new CompraRepo(contexto);
+            Compra compra = repo.Recuperar(g => g.Id == id);
+            model = mapper.Map<CompraModel>(compra);
+
+            return model;
+        }
     }
 }

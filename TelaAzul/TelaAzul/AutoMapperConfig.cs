@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using TelaAzul.Models;
 using Entidades;
+using TelaAzul.Models;
 
 namespace TelaAzul
 {

@@ -69,5 +69,21 @@ namespace TelaAzul.Controllers
             (new ComprasFilmesModel()).Salvar(filme);
             return new JsonResult(filme);
         }
+
+        public IActionResult Finalizar()
+        {
+            // retorno View com dados da compra
+
+            // alterar status da compra para aguardando pagamento
+            var idCompra = HttpContext.Session.GetInt32("idCompra").Value;
+
+            var Compra = new CompraModel().Selecionar(idCompra);
+            Compra.StatusId = 3; // id cadastrado no banco // iniciada / finalizada / aguardandoPagamento
+            
+            var Produtos = (new ComprasFilmesModel()).Listar(idCompra);
+            decimal total = 0;  
+
+            // redirecionar usuário
+        }
     }
 }
