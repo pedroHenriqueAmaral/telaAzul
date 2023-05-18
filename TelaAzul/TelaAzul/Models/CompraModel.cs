@@ -1,6 +1,11 @@
 ﻿using AutoMapper;
 using Contexto;
 using Entidades;
+using MercadoPago.Client.Common;
+using MercadoPago.Client.Preference;
+using MercadoPago.Config;
+using MercadoPago.Resource.Preference;
+using Projeto2023_v2.Models;
 using Repositorio;
 
 namespace TelaAzul.Models
@@ -8,9 +13,11 @@ namespace TelaAzul.Models
     public class CompraModel
     {
         public int Id { get; set; }
+        public int IdStatus { get; set; }
         public DateTime DataCadastro { get; set; }
         public Decimal Valor { get; set; }
-        public int StatusId { get; set; }
+        public String ? IdPreferencia { get; set; }
+        public String ? Url { get; set; }
 
         public CompraModel Salvar(CompraModel model)
         {
@@ -43,6 +50,99 @@ namespace TelaAzul.Models
             model = mapper.Map<CompraModel>(compra);
 
             return model;
+        }
+
+        public CompraModel SelecionarIdPreferencia(String idPreferencia)
+        {
+            CompraModel model = null;
+            var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
+
+            using (Context contexto = new())
+            {
+                CompraRepo repositorio =new(contexto);
+                Compra preferencia = repositorio.Recuperar(c => c.IdPreferencia == idPreferencia);
+                model = mapper.Map<CompraModel>(preferencia);
+            }
+
+            return model;
+        }
+
+        public async Task<RetornoMercadoPago> GerarPagamentoMercadoPago(MercadoPagoModel model)
+        {
+            RetornoMercadoPago ret = new RetornoMercadoPago();
+           
+            try
+            {
+                string cidade = model.Cidade;
+                string estado = model.Estado;
+
+                // Adiciona credenciais
+                MercadoPagoConfig.AccessToken = "";
+
+                String[] split = model.Nome.Split(' ');
+                
+                var payer = new PreferencePayerRequest
+                {
+                    Name = split[0],
+                    Surname = split[split.Length - 1],
+                    Email = model.Email,
+                    Phone = new PhoneRequest
+                    {
+                        AreaCode = "",
+                        Number = model.Telefone,
+                    },
+                    Identification = new IdentificationRequest
+                    {
+                        Type = "DNI",
+                        Number = model.IdPagamento.ToString(),
+                    },
+                    Address = new AddressRequest
+                    {
+                        StreetName = model.Logradouro,
+                        StreetNumber = model.Numero,
+                        ZipCode = model.Cep,
+                    },
+                };
+                
+                var item = new PreferenceItemRequest
+                {
+                    Id = model.IdPagamento.ToString(),
+                    Title = "",
+                    Description = "",
+                    CategoryId = "Cinema",
+                    Quantity = 1,
+                    CurrencyId = "BRL",
+                    UnitPrice = model.Valor,
+                };
+
+                var request = new PreferenceRequest
+                {
+                    BackUrls = new PreferenceBackUrlsRequest
+                    {
+                        /* link hospedado */
+                        Success = "http://anazanelato-001-site1.itempurl.com/Compras/retornoMercadoPago",
+                        Failure = "ENDPOINT_Retorno_falha",
+                        Pending = "ENDPOINT_Retorno_pendencias",
+                    },
+                    AutoReturn = "approved",
+                    Payer = payer,
+                    Items = new List<PreferenceItemRequest>()
+                };
+                request.Items.Add(item);
+
+                var client = new PreferenceClient();
+                Preference preference = await client.CreateAsync(request);
+                ret.Url = preference.InitPoint;
+                ret.IdPreferencia = preference.Id;
+                ret.Status = "Sucesso";
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                ret.Status = "Erro";
+                ret.Erro = ex.Message;
+                return ret;
+            }
         }
     }
 }
