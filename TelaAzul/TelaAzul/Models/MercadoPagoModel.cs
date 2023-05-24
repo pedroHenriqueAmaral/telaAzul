@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Projeto2023_v2.Models
+namespace TelaAzul.Models
 {
     public class MercadoPagoModel
     {
-        public int IdPagamento { get; set; }
+        public int PagamentoId { get; set; }
         public String ? Email { get; set; }
         public String ? Nome { get; set; }
         public String ? Cidade { get; set; }

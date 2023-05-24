@@ -1,182 +1,169 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Projeto2023_v2.Models;
+using TelaAzul.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using TelaAzul.Models;
+using Entidades;
 
 namespace TelaAzul.Controllers
 {
-    public class ComprasController : Controller
+    public class CompraController : Controller
     {
         public IActionResult Index()
         {
-            List<ComprasFilmesModel> lista = new();
+            List<ComprasFilmesModel> lista = new List<ComprasFilmesModel>();
             return View(lista);
         }
 
-        public IActionResult ExcluirFilme(int id)
+        public IActionResult excluirProduto(int id)
         {
-            var idCompra = HttpContext.Session.GetInt32("idCompra").Value;
-
             (new ComprasFilmesModel()).Excluir(id);
-            var lista = (new ComprasFilmesModel()).Listar(idCompra);
-
+            var lista = (new ComprasFilmesModel()).Listar(HttpContext.Session.GetInt32("compraId").Value);
             return View("Index", lista);
         }
 
         public IActionResult Finalizar()
         {
-            int idCompra = HttpContext.Session.GetInt32("idCompra").Value;
-
-            CompraModel compra = new CompraModel().Selecionar(idCompra);
-            compra.idStatus = 3; // status para Aguardando Pagamento (cadastrado no banco)
-
-            var produtos = (new ComprasFilmesModel()).Listar(idCompra);
+            int compraId = HttpContext.Session.GetInt32("compraId").Value;
+            CompraModel compra = new CompraModel().Selecionar(compraId);
+            compra.StatusId = 3; // aguardando pagamento ( Id cadastrado no banco )
+            var produtos = (new ComprasFilmesModel()).Listar(compraId);
+            
             decimal total = 0;
-
+            
             foreach (var item in produtos)
             {
                 total += item.Valor;
             }
+            
             compra.Valor = total;
+            compra.ClienteId = HttpContext.Session.GetInt32("clienteId").Value;
+
+            //gerar o pagamento
+            ClienteModel cliente = new ClienteModel().Selecionar(HttpContext.Session.GetInt32("clienteId").Value);
             
-            // Gera pagamento
-            
-            /*   
-             * ClienteModel cliente = new ClienteModel().selecionar(HttpContext.Session.GetInt32("idCliente").Value);
-               Task<RetornoMercadoPago> retorno = new ComprasModel().gerarPagamentoMercadoPago(new MercadoPagoModel()
-               {
-                   email = cliente.email,
-                   cidade = cliente.cidade,
-                   cep = cliente.cep,
-                   estado = cliente.estado,
-                   idPagamento = idCompra,
-                   logradouro = cliente.logradouro,
-                   nome = cliente.nome,
-                   nomePlano = "Venda Ingresso Toledo",
-                   numero = cliente.numero,
-                   telefone = cliente.telefone,
-                   valor = total
-               });
-            */
-            
-            // como não tem cliente aqui, fixo para testar
             Task<RetornoMercadoPago> retorno = new CompraModel().GerarPagamentoMercadoPago(new MercadoPagoModel()
             {
-                IdPagamento = idCompra,
-                Nome = "Cliente teste",
-                Email = "meuamigovet@gmail.com",
-                NomePlano = "Venda Ingresso Toledo",
-                Cidade = "Presidente Prudente",
-                Cep = "19025563",
-                Estado = "SP",   
-                Logradouro = "Avenida Brasil",
-                Numero = "20",
-                Telefone = "1897865695",
-                Valor = total
+                Nome = cliente.Nome,
+                Email = cliente.Email,
+                Cidade = cliente.Cidade,
+                Estado = cliente.Estado,
+                Cep = cliente.Cep,   
+                Logradouro = cliente.Logradouro,
+                PagamentoId = compraId,
+                Valor = total,
+                NomePlano = "Venda Ingresso",
             });
+
+            /*
+            Como não tenho cliente aqui vou fazer fixo para testar.
+            Task<RetornoMercadoPago> retorno = new ComprasModel().gerarPagamentoMercadoPago(new MercadoPagoModel()
+            {
+                email = "meuamigovet@gmail.com",
+                cidade = "Presidente Prudente",
+                cep = "19025563",
+                estado = "SP",
+                idPagamento = idCompra,
+                logradouro = "Avenida Brasil",
+                nome = "Cliente teste",
+                nomePlano = "Venda Ingresso Toledo",
+                numero = "20",
+                telefone = "1897865695",
+                valor = total
+            });
+            */
 
             if (retorno.Result.Status == "Sucesso")
             {
-                compra.IdPreferencia = retorno.Result.IdPreferencia;
+                compra.PreferenciaId = retorno.Result.PreferenciaId;
                 compra.Url = retorno.Result.Url;
             }
             else
             {
-                compra.IdStatus = 4; // Compra cancelada
+                compra.StatusId = 4; //cancelada
             }
 
             new CompraModel().Salvar(compra);
             return Redirect(retorno.Result.Url);
         }
 
-        public virtual JsonResult alterarQtde(int id, int qtde)
+        public virtual JsonResult AlterarQtde(int id, int quantidade)
         {
-            ComprasProdutoModel produto =
-                (new ComprasProdutoModel()).selecionar(id);
-            produto.qtde = qtde;
-            decimal valorUnitario = new ProdutoModel().selecionar(produto.idProduto).valor;
-            produto.valor = qtde * valorUnitario;
-            (new ComprasProdutoModel()).salvar(produto);
+            ComprasFilmesModel produto = (new ComprasFilmesModel()).Selecionar(id);
+            produto.Quantidade = quantidade;
+            
+            decimal valorUnitario = new FilmeModel().Selecionar(produto.FilmeId).Valor;
+            produto.Valor = quantidade * valorUnitario;
+            
+            (new ComprasFilmesModel()).Salvar(produto);
             return new JsonResult(produto);
-
         }
 
         public IActionResult Finalizacao()
         {
-
             return View();
         }
 
         [HttpGet]
-        public IActionResult retornoMercadoPago(string collection_id, string collection_status, string payment_id,
-       string status, string external_reference, string payment_type, string merchant_order_id,
-       string preference_id, string site_id, string processing_mode, string merchant_account_id)
+        public IActionResult RetornoMercadoPago(string collectionId, string collectionStatus, string paymentId,
+            string status, string externalReference, string paymentType, string merchantOrderId,
+            string preferenceId, string siteId, string processingMode, string merchant_accountId)
         {
-            //obter o pagamento pelo idPreferencia(preference_id);
-            ComprasModel compras = new ComprasModel().selecionarIdPreferencia(
-                                                        preference_id);
-            compras.idStatus = 2;//finalizado
-            //compras.datapagamento = datetime.now;
-            new ComprasModel().salvar(compras);
+            CompraModel compra = new CompraModel().SelecionarIdPreferencia(preferenceId);
+            compra.StatusId = 2; // Finalizado
+            
+            // compras.datapagamento = datetime.now;
+            new CompraModel().Salvar(compra);
 
             if (status == "approved")
             {
                 //baixar como pago
-
                 return RedirectToAction("Finalizacao", "Compras");
             }
             else
             {
-
                 return View();
             }
-
         }
 
-
-        //parametro id = id_produto
-        public IActionResult comprarProduto(int id)
+        public IActionResult ComprarIngresso(int id)
         {
+            // Busca o valor 
+            var ingresso = (new FilmeModel()).Selecionar(id);
+            var valor = ingresso.Valor;
 
-            //buscar o valor do produto
-            var produto = (new ProdutoModel()).selecionar(id);
-            var valor = produto.valor;
-
-            //validar se a compra não iniciou
-            if (HttpContext.Session.GetInt32("idCompra") == null)
+            // Valida se a compra não foi iniciada
+            if (HttpContext.Session.GetInt32("compraId") == null)
             {
-
-
-                //inserir na tabela de compras
-                var compras = new ComprasModel()
+                // Insere na tabela de Compra
+                var compra = new CompraModel()
                 {
-                    dataCadastro = DateTime.Now,
-                    idStatus = 1,
-                    valor = valor
+                    StatusId = 1,
+                    DataCadastro = DateTime.Now,
+                    Valor = valor
                 };
 
-                (new ComprasModel()).salvar(compras);
-                //inserir na sessão
-                HttpContext.Session.SetInt32("idCompra", compras.id);
-
+                (new CompraModel()).Salvar(compra);
+               
+                // Insere na Sessão
+                HttpContext.Session.SetInt32("compraId", compra.Id);
             }
-            //inserir na tabela de compras produtos
-            var prod = new ComprasProdutoModel()
+
+            // Insere na tabela de ComprasFilmes
+            var comprasFilmes = new ComprasFilmesModel()
             {
-                idCompra = HttpContext.Session.GetInt32("idCompra").Value,
-                idProduto = id,//parametro
-                qtde = 1,
-                valor = valor
+                FilmeId = id,
+                CompraId = HttpContext.Session.GetInt32("compraId").Value,
+                Valor = valor,
+                Quantidade = 1
             };
-            (new ComprasProdutoModel()).salvar(prod);
 
-            var lista = (new ComprasProdutoModel()).listar(
-                HttpContext.Session.GetInt32("idCompra").Value);
+            (new ComprasFilmesModel()).Salvar(comprasFilmes);
 
+            var lista = (new ComprasFilmesModel()).Listar(HttpContext.Session.GetInt32("compraId").Value);
             return View("Index", lista);
         }
     }

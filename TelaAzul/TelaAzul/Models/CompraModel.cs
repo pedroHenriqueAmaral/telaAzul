@@ -5,7 +5,7 @@ using MercadoPago.Client.Common;
 using MercadoPago.Client.Preference;
 using MercadoPago.Config;
 using MercadoPago.Resource.Preference;
-using Projeto2023_v2.Models;
+using TelaAzul.Models;
 using Repositorio;
 
 namespace TelaAzul.Models
@@ -13,10 +13,11 @@ namespace TelaAzul.Models
     public class CompraModel
     {
         public int Id { get; set; }
-        public int IdStatus { get; set; }
+        public int StatusId { get; set; }
+        public int ClienteId { get; set; }
         public DateTime DataCadastro { get; set; }
         public Decimal Valor { get; set; }
-        public String ? IdPreferencia { get; set; }
+        public String ? PreferenciaId { get; set; }
         public String ? Url { get; set; }
 
         public CompraModel Salvar(CompraModel model)
@@ -94,7 +95,7 @@ namespace TelaAzul.Models
                     Identification = new IdentificationRequest
                     {
                         Type = "DNI",
-                        Number = model.IdPagamento.ToString(),
+                        Number = model.PagamentoId.ToString(),
                     },
                     Address = new AddressRequest
                     {
@@ -106,7 +107,7 @@ namespace TelaAzul.Models
                 
                 var item = new PreferenceItemRequest
                 {
-                    Id = model.IdPagamento.ToString(),
+                    Id = model.PagamentoId.ToString(),
                     Title = "",
                     Description = "",
                     CategoryId = "Cinema",
@@ -120,7 +121,7 @@ namespace TelaAzul.Models
                     BackUrls = new PreferenceBackUrlsRequest
                     {
                         /* link hospedado */
-                        Success = "http://anazanelato-001-site1.itempurl.com/Compras/retornoMercadoPago",
+                        Success = "http://exemplo.com/Compras/retornoMercadoPago",
                         Failure = "ENDPOINT_Retorno_falha",
                         Pending = "ENDPOINT_Retorno_pendencias",
                     },
@@ -133,7 +134,7 @@ namespace TelaAzul.Models
                 var client = new PreferenceClient();
                 Preference preference = await client.CreateAsync(request);
                 ret.Url = preference.InitPoint;
-                ret.IdPreferencia = preference.Id;
+                ret.PreferenciaId = preference.Id;
                 ret.Status = "Sucesso";
                 return ret;
             }

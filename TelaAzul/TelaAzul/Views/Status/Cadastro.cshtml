@@ -1,0 +1,26 @@
+﻿@model TelaAzul.Models.StatusModel
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cadastrar Status das Compras</h1>
+
+<form method="POST" asp-controller="Status" asp-action="Salvar">
+    <div class="row mt-2">
+        <div class="form-group col-sm-12 col-2">
+            <label for="id" class="form-label" asp-for="Id"></label>
+            <input type="text" asp-for="Id" class="form-control" readonly />
+        </div>
+
+        <div class="form-group col-sm-12 col-6">
+            <label for="descricao" class="form-label" asp-for="Descricao"></label>
+            <input type="text" asp-for="Descricao" class="form-control" placeholder="Ex: Finalizado, Cancelado, Em Andamento..." />
+            <span asp-validation-for="Descricao" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-dark mt-2" value="Cadastrar Status" />
+    <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+</form>
+    

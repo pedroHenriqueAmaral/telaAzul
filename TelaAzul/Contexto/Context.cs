@@ -97,7 +97,7 @@ namespace Contexto
                 // Relacionamento com Status
                 entidade.HasOne(e => e.Status) // "Lado de Um" Prop
                 .WithMany(c => c.Compra) // "Lado de Muitos"
-                .HasForeignKey(e => e.StatusId)
+                .HasForeignKey(e => e.IdStatus)
                 .HasConstraintName("FK_Compras_Status") // Nome do Relacionamento
                 .OnDelete(DeleteBehavior.NoAction);
             });

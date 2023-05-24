@@ -20,6 +20,15 @@ namespace TelaAzul.Models
         [Display(Name = "Tipo")]
         public string ? Tipo_Cliente { get; set; }
 
+        // CompraController Finalizar()
+
+        public string ? Cidade { get; set; }
+        public string ? Estado { get; set; }
+        public string ? Cep { get; set; }
+        public string ? Logradouro { get; set; }
+
+        //
+
         [Display(Name = "E-mail")]
         [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Email { get; set; }
