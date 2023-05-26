@@ -8,59 +8,76 @@
 
 <form method="POST" asp-controller="Filme" asp-action="Salvar" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="form-group col-2">
+        <div class="form-group col-1">
             <label for="id" class="form-label"  asp-for="Id"></label>
             <input type="text" asp-for="Id" name="id" class="form-control" readonly />
         </div>
 
-        <div class="form-group col-5">
-            <label for="titulo" class="form-label"  asp-for="Titulo"></label>
-            <input type="text" asp-for="Titulo" name="titulo" class="form-control" required />
+        <div class="form-group col-4">
+            <label class="form-label"  asp-for="Titulo"></label>
+            <input type="text" class="form-control" asp-for="Titulo" placeholder="Infrome o Título do Filme" />
+            <span asp-validation-for="Titulo" class="alert-warning"></span>
         </div>
 
-        <div class="form-group col-5">
-            <label for="imagem" class="form-label" asp-for="ArquivoImagem"></label>
+        <div class="form-group col-3">
+            <label class="form-label" asp-for="GeneroId"></label>
+            <select class="form-control" asp-for="GeneroId" asp-items="@ViewBag.listaGeneros">
+                <option selected disabled>Selecione ou Cadastre um gênero</option>
+            </select>
+            <span asp-validation-for="GeneroId" class="alert-warning"></span>
+        </div>
+
+        <div class="form-group col-4">
+            <label class="form-label" asp-for="ArquivoImagem"></label>
             <input type="file" class="form-control" asp-for="ArquivoImagem" id="imagem" />
-            <span asp-validation-for="ArquivoImagem" class="alert-danger"></span>
+            <span asp-validation-for="ArquivoImagem" class="alert-warning"></span>
         </div>
     </div>
 
     <div class="row mt-2">
         <div class="form-group col-12">
-            <label for="sinopse" class="form-label" asp-for="Sinopse"></label>
-            <textarea type="text" asp-for="Sinopse" name="sinopse" 
-                      class="form-control" rows="3" required></textarea>
+            <label class="form-label" asp-for="Sinopse"></label>
+            <textarea type="text" asp-for="Sinopse" class="form-control"
+                      placeholder="Informe a Sinopse do filme, de 5 á 250 caractéres"></textarea>
+            <span asp-validation-for="Sinopse" class="alert-warning"></span>
         </div>
     </div>
 
     <div class="row mt-2">
         <div class="form-group col-4">
-            <label for="duracao" class="form-label" asp-for="Duracao"></label>
-            <input type="number" asp-for="Duracao" name="duracao" class="form-control" 
-                   placeholder="Duração em minutos." required />
-            <span asp-validation-for="Duracao" class="alert-danger"></span>
+            <label class="form-label" asp-for="Duracao"></label>
+            <input type="number" class="form-control" asp-for="Duracao" placeholder="Em minutos" />
+            <span asp-validation-for="Duracao" class="alert-warning"></span>
         </div>
 
         <div class="form-group col-4">
-            <label for="audio" class="form-label" asp-for="Audio"></label>
-            <select class="form-control" asp-for="Audio" required>
-                <!--<option disabled>Seleciona o Áudio do Filme</option>-->
-                <option>Dublado</option>
-                <option>Inglês Legendado</option>
-                <option>Inglês</option>
+            <label class="form-label" asp-for="Audio"></label>
+            <select class="form-control" asp-for="Audio">
+                <option selected disabled>Seleciona o Áudio do Filme</option>
+                <option value="dublado">Dublado</option>
+                <option value="ingles legendado">Inglês Legendado</option>
+                <option value="ingles">Inglês</option>
             </select>
+            <span asp-validation-for="Audio" class="alert-warning"></span>
         </div>
 
+
         <div class="form-group col-4">
-            <label class="form-label" asp-for="GeneroId"></label>
-            <select class="form-control" asp-for="GeneroId" asp-items="@ViewBag.listaGeneros">
-                <option>Selecione Gênero do filme</option>
+            <label class="form-label" asp-for="Valor"></label>
+            <!--
+            <input type="number" class="form-control" asp-for="Valor" value="" placeholder="Valor do Ingresso" />-->
+            <select class="form-control" asp-for="Valor">
+                <option selected disabled>Selecione o valor do Ingresso</option>
+                <option value="15">15,00</option>
+                <option value="20">20,00</option>
+                <option value="25">25,00</option>
+                <option value="30">30,00</option>
             </select>
-            <span asp-validation-for="GeneroId" class="alert-warning"></span>
+            <span asp-validation-for="Valor" class="alert-warning"></span>
         </div>
     </div>
 
-    <input type="submit" class="btn btn-dark mt-2" value="Cadastrar Filme" />
-    <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+    <input type="submit" class="btn btn-dark mt-2" value="Cadastrar" /><br />
+    <span class="alert @ViewBag.classe float-start mt-2">@ViewBag.msg</span>
         
 </form>

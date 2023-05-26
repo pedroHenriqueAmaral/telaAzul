@@ -13,8 +13,7 @@ namespace TelaAzul.Controllers
             webHostEnvironment = hostEnvironment;
         }
 
-        // Carrega o input select com os Gêneros cadastrados
-        public void carregaGenero()
+        public IActionResult Cadastro()
         {
             List<GeneroModel> lista = (new GeneroModel()).Listar();
             ViewBag.listaGeneros = lista.Select(gen => new SelectListItem()
@@ -22,11 +21,7 @@ namespace TelaAzul.Controllers
                 Value = gen.Id.ToString(),
                 Text = gen.Nome
             });
-        } 
 
-        public IActionResult Cadastro()
-        {
-            carregaGenero();
             return View(new FilmeModel());
         }
 
@@ -55,16 +50,23 @@ namespace TelaAzul.Controllers
                 ViewBag.msg = "Erro: Confira os campos do formulário. ";
             }
 
-            carregaGenero();
+            List<GeneroModel> lista = (new GeneroModel()).Listar();
+            ViewBag.listaGeneros = lista.Select(gen => new SelectListItem()
+            {
+                Value = gen.Id.ToString(),
+                Text = gen.Nome
+            });
+
             return View("Cadastro", model);
         }
 
         public IActionResult Listar()
         {
-            FilmeModel filmodel = new FilmeModel();
+            FilmeModel filmodel = new ();
             List<FilmeModel> lista = filmodel.Listar();
 
-            GeneroModel generoModel = new GeneroModel();
+            GeneroModel generoModel = new ();
+            
             foreach(var item in lista)
             {
                 item.Genero = generoModel.Selecionar(item.GeneroId);
@@ -88,7 +90,8 @@ namespace TelaAzul.Controllers
 
         public IActionResult Excluir(int id)
         {
-            var model = new FilmeModel();
+            FilmeModel model = new ();
+
             try
             {
                 model.Excluir(id);

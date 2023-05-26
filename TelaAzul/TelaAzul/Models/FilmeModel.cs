@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Repositorio;
 using Contexto;
 using Entidades;
+using Repositorio;
 using System.ComponentModel.DataAnnotations;
 
 namespace TelaAzul.Models
@@ -12,27 +12,36 @@ namespace TelaAzul.Models
         public int Id { get; set; }
 
         [Display(Name = "Título")]
-        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
+        [Required(ErrorMessage = "Informe o Título do Filme")]
+        [MinLength(2, ErrorMessage = "No mínimo 2 caractéres")]
+        [MaxLength(50, ErrorMessage = "No máximo 50 caractéres")]
         public string ? Titulo { get; set; }
 
         [Display(Name = "Sinopse")]
+        [Required(ErrorMessage = "Informe a Sinopse do filme")]
+        [MinLength(5, ErrorMessage = "No mínimo 5 caractéres")]
         [MaxLength(250, ErrorMessage = "Máximo 250 Caractéres")]
         public string ? Sinopse { get; set; }
 
         public string ? Imagem { get; set; }
         [Display(Name = "Imagem de Cartaz")]
+        // Imagem não é requerida por causa da função de Alterar o cadastro
         public IFormFile ? ArquivoImagem { get; set; }
 
         [Display(Name = "Duração do Filme")]
+        [Required(ErrorMessage = "Informe a duração do filme em minutos")]
         public int ? Duracao { get; set; }
 
         [Display(Name = "Áudio")]
+        [Required(ErrorMessage = "Selecione uma opção válida")]
         public string ? Audio { get; set; }
 
+        [Display(Name = "Valor")]
+        [Required(ErrorMessage = "Selecione uma opção válida")]
         public Decimal Valor { get; set; }
 
-        [Display(Name = "Gênero")]
-        [Required(ErrorMessage = "Gênero inválido.\nSelecione ou cadastre um gênero.")]
+        [Display(Name = "Gênero do Filme")]
+        // [Required(ErrorMessage = "Informe um gênero cadastrado")]
         public int GeneroId { get; set; }
         public GeneroModel ? Genero { get; set; }
 
@@ -49,9 +58,9 @@ namespace TelaAzul.Models
                     filme.Imagem  = Selecionar(model.Id).Imagem;
             }
 
-            using(Context contexto = new Context())
+            using(Context contexto = new())
             {
-                FilmeRepo repo = new FilmeRepo(contexto);
+                FilmeRepo repo = new(contexto);
 
                 if (model.Id == 0)
                     repo.Inserir(filme);
@@ -69,9 +78,9 @@ namespace TelaAzul.Models
             List<FilmeModel> ? listamodel = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
-            using(Context contexto = new Context())
+            using(Context contexto = new())
             {
-                FilmeRepo repo = new FilmeRepo(contexto);
+                FilmeRepo repo = new(contexto);
                 List<Filme> lista = repo.ListarTodos();
                 listamodel = mapper.Map<List<FilmeModel>>(lista);
             }
@@ -83,9 +92,9 @@ namespace TelaAzul.Models
             FilmeModel ? model = null;
             var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
-            using (Context contexto = new Context())
+            using (Context contexto = new())
             {
-                FilmeRepo repo = new FilmeRepo(contexto);
+                FilmeRepo repo = new(contexto);
                 Filme filme = repo.Recuperar(f => f.Id == id);
                 model = mapper.Map<FilmeModel>(filme);
             }
@@ -94,11 +103,12 @@ namespace TelaAzul.Models
 
         public void Excluir(int id)
         {
-            using (Context contexto = new Context())
+            using (Context contexto = new())
             {
-                FilmeRepo repo = new FilmeRepo(contexto);
+                FilmeRepo repo = new(contexto);
                 Filme filme = repo.Recuperar(f => f.Id == id);
                 repo.Excluir(filme);
+                
                 contexto.SaveChanges();
             }
         }
