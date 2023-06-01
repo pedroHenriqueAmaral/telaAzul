@@ -10,6 +10,11 @@ namespace TelaAzul.Controllers
             return View(new ClienteModel());
         }
 
+        public IActionResult CadastroCliente()
+        {
+            return View(new ClienteModel());
+        }
+
         [HttpPost]
         public IActionResult Salvar(ClienteModel model)
         {
@@ -35,6 +40,33 @@ namespace TelaAzul.Controllers
                 ViewBag.msg = "Erro, verifique os campos";
             }
             return View("Cadastro", model);
+        }
+
+        [HttpPost]
+        public IActionResult SalvarCliente(ClienteModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    ClienteModel cliModel = new ClienteModel();
+                    cliModel.Salvar(model);
+
+                    ViewBag.classe = "alert-success";
+                    ViewBag.msg = model.Nome + " salvo com sucesso ";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.classe = "alert.danger";
+                    ViewBag.msg = "Erro: " + ex.Message + " | " + ex.InnerException;
+                }
+            }
+            else
+            {
+                ViewBag.classe = "alert-danger";
+                ViewBag.msg = "Erro, verifique os campos";
+            }
+            return View("CadastroCliente", model);
         }
 
         [HttpPost]
@@ -116,7 +148,7 @@ namespace TelaAzul.Controllers
             {
                 HttpContext.Session.SetInt32("idCliente", model.Id);
                 HttpContext.Session.SetString("nomeCliente", model.Nome);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "HomeSite");
             }
         }
 

@@ -103,7 +103,14 @@ namespace TelaAzul.Controllers
                 ViewBag.classe = "alert-danger";
                 ViewBag.msg = "Erro: " + ex.Message;
             }
-            
+
+            List<GeneroModel> lista = (new GeneroModel()).Listar();
+            ViewBag.listaGeneros = lista.Select(generos => new SelectListItem()
+            {
+                Value = generos.Id.ToString(),
+                Text = generos.Nome
+            });
+
             return View("Listar", model.Listar());
         }
     }

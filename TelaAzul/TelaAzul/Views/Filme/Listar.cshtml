@@ -14,10 +14,9 @@
 
 <h1>Lista de Filmes</h1>
 
-<span class="alert @ViewBag.classe">@ViewBag.msg</span>
-<br />
+<a href="~/Filme/Cadastro" class="btn btn-success">Cadastrar Novo Filme</a>
 
-<a href="~/Filme/Cadastro" class="btn btn-success m-2">Cadastrar Filme</a>
+<span class="alert @ViewBag.classe">@ViewBag.msg</span>
 
 <table class="table table-striped">
     <thead>
@@ -29,7 +28,6 @@
             <th scope="col">Duração (minutos)</th>
             <th scope="col">Áudio</th>
             <th scope="col">Valor</th>
-            <!-- Botões de Alterar/Excluir-->
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -49,7 +47,7 @@
                     <a href="~/Filme/PreAlterar/@item.Id" class="btn btn-warning">Alterar</a>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-danger" onclick="confirmaExclusao(@item.Id)">Excluir</a>
+                    <a class="btn btn-danger" onclick="confirmaExclusao(@item.Id)">Excluir</a>
                 </td>
             </tr>
         }

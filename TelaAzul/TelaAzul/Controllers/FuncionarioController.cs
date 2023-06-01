@@ -44,6 +44,26 @@ namespace TelaAzul.Controllers
             return View(lista);
         }
 
+        public IActionResult Excluir(int id)
+        {
+            FuncionarioModel model = new();
+
+            try
+            {
+                model.Excluir(id);
+
+                ViewBag.classe = "alert-success";
+                ViewBag.msg = "Funcioário " + model.Nome + " excluido com sucesso.";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.classe = "alert-danger";
+                ViewBag.msg = "Erro: " + ex.Message;
+            }
+
+            return View("Listar", model.Listar());
+        }
+
         public IActionResult Login()
         {
             return View();

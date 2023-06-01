@@ -17,7 +17,7 @@ namespace TelaAzul.Controllers
             return View(lista);
         }
 
-        public IActionResult excluirProduto(int id)
+        public IActionResult ExcluirFilme(int id)
         {
             (new ComprasFilmesModel()).Excluir(id);
             var lista = (new ComprasFilmesModel()).Listar(HttpContext.Session.GetInt32("compraId").Value);
@@ -89,7 +89,7 @@ namespace TelaAzul.Controllers
             return Redirect(retorno.Result.Url);
         }
 
-        public virtual JsonResult AlterarQtde(int id, int quantidade)
+        public virtual JsonResult AlterarQuantidade(int id, int quantidade)
         {
             ComprasFilmesModel produto = (new ComprasFilmesModel()).Selecionar(id);
             produto.Quantidade = quantidade;

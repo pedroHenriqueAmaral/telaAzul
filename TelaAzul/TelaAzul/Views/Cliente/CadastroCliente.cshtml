@@ -1,19 +1,16 @@
 ﻿@model TelaAzul.Models.ClienteModel
-
 @{
-    ViewData["Title"] = "cadastro";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "CadastroCliente";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
 }
 
 <h1>Cadastro</h1>
 
-<a href="~/Cliente/Listar" class="btn btn-dark mb-2">Lista de Clientes</a>
-
-<form method="POST" asp-controller="Cliente" asp-action="Salvar">
+<form method="POST" asp-controller="Cliente" asp-action="SalvarCliente">
     <div class="row">
         <div class="col-4 form-group">
-            <label for="id" class="form-label" asp-for="Id"></label>
-            <input type="text" id="id" class="form-control" asp-for="Id" readonly />
+            <!--<label for="id" class="form-label" asp-for="Id"></label>-->
+            <input type="text" id="id" name="id" class="form-control" asp-for="Id" readonly hidden />
             <span asp-validation-for="Id" class="alert-danger"></span>
         </div>
     </div>
@@ -21,13 +18,13 @@
     <div class="row">
         <div class="col-6 form-group">
             <label for="nome" class="form-label" asp-for="Nome"></label>
-            <input type="text" id="nome" class="form-control" asp-for="Nome" />
+            <input type="text" id="nome" name="nome" class="form-control" asp-for="Nome" />
             <span asp-validation-for="Nome" class="alert-danger"></span>
         </div>
 
         <div class="col-4 form-group">
             <label for="dataNascimento" class="form-label" asp-for="Data_Nascimento"></label>
-            <input type="date" class="form-control" id="dataNascimento" asp-for="Data_Nascimento" />
+            <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" asp-for="Data_Nascimento" />
             <span asp-validation-for="Data_Nascimento" class="alert-danger" />
         </div>
     </div>
@@ -35,13 +32,13 @@
     <div class="row">
         <div class="col-6 form-group">
             <label for="email" class="form-label" asp-for="Email"></label>
-            <input type="email" class="form-control" asp-for="Email" id="email" />
+            <input type="email" class="form-control" asp-for="Email" name="email" id="email" />
             <span asp-validation-for="Email" class="alert-danger"></span>
         </div>
 
         <div class="col-6" form-group>
-            <label for="senha" class="form-label"asp-for="Senha"></label>
-            <input type="password" class="form-control" asp-for="Senha" id="senha" />
+            <label for="senha" class="form-label" asp-for="Senha"></label>
+            <input type="password" class="form-control" asp-for="Senha" name="senha" id="senha" />
             <span asp-validation-for="Senha" class="alert-danger"></span>
         </div>
     </div>
