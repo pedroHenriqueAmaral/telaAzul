@@ -11,25 +11,34 @@ namespace TelaAzul.Models
         [Display(Name = "Código")]
         public int Id { get; set; }
 
-        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
+        [Display(Name = "Nome")]
+        [Required(ErrorMessage = "Informe o nome do funcionário")]
+        [MinLength(3, ErrorMessage  = "Mínimo  3 Caractéres")]
+        [MaxLength(25, ErrorMessage = "Máximo 25 Caractéres")]
         public String ? Nome { get; set; }
 
         [Display(Name = "Data de Nascimento")]
+        [Required(ErrorMessage = "Informe a data de nascimento")]
         public DateTime Data_Nascimento { get; set; }
 
         [Display(Name = "Data de Admissão")]
+        [Required(ErrorMessage = "Informe a data de admissão")]
         public DateTime Data_Admissao{ get; set; }
 
         [Display(Name = "Cargo")]
+        [Required(ErrorMessage = "Informe o cargo do funcionário")]
         public String ? Cargo { get; set; }
 
         [Display(Name = "Salário Fixo")]
+        [Required(ErrorMessage = "Informe o salário do funcionário")]
         public float Salario_Fixo { get; set; }
 
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "Informe o e-mail")]
         public String ? Email { get; set; }
 
         [Display(Name = "Senha")]
+        [Required(ErrorMessage =  "Informe a senha")]
         public String ? Senha { get; set; }
 
         public FuncionarioModel Salvar(FuncionarioModel model)

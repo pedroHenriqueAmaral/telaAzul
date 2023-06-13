@@ -9,7 +9,7 @@
 <a href="~/Funcionario/Listar" class="btn btn-dark mb-2">Lista de Funcionários</a>
 
 <form method="POST" asp-controller="Funcionario" asp-action="Salvar">
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-4 form-group">
             <label for="id" class="form-label" asp-for="Id"></label>
             <input type="text" id="id" class="form-control" asp-for="Id" readonly />
@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-12 form-group">
             <label for="nome" class="form-label" asp-for="Nome"></label>
             <input type="text" id="nome" class="form-control" asp-for="Nome" />
@@ -25,21 +25,21 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-5 form-group">
             <label class="form-label" asp-for="Data_Nascimento"></label>
-            <input type="text" class="form-control" asp-for="Data_Nascimento" />
+            <input type="date" class="form-control" asp-for="Data_Nascimento" value="" />
             <span asp-validation-for="Data_Nascimento" class="alert-danger" />
         </div>
 
         <div class="col-5 form-group">
             <label class="form-label" asp-for="Data_Admissao"></label>
-            <input type="text" class="form-control" asp-for="Data_Admissao" />
+            <input type="date" class="form-control" asp-for="Data_Admissao" value="" />
             <span asp-validation-for="Data_Admissao" class="alert-danger" />
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-5 form-group">
             <label for="cargo" class="form-label" asp-for="Cargo"></label>
             <input type="text" class="form-control" id="cargo" asp-for="Cargo" />
@@ -53,7 +53,7 @@
         </div>
     </div>
     
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-6 form-group">
             <label for="email" class="form-label" asp-for="Email"></label>
             <input type="email" class="form-control" asp-for="Email" id="email" placeholder="exemplo@testes.com" />

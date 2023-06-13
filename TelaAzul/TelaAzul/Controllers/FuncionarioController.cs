@@ -17,11 +17,11 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    var funcModel = new FuncionarioModel();
+                    FuncionarioModel funcModel = new();
                     funcModel.Salvar(model);
 
                     ViewBag.classe = "alert-success";
-                    ViewBag.msg = model.Nome + " cadastrado com sucesso ";
+                    ViewBag.msg = "Funcionáio " + model.Nome + " cadastrado com sucesso!";
                 }
                 catch (Exception ex)
                 {
@@ -39,9 +39,15 @@ namespace TelaAzul.Controllers
 
         public IActionResult Listar()
         {
-            FuncionarioModel model = new FuncionarioModel();
+            FuncionarioModel model = new();
             List<FuncionarioModel> lista = model.Listar();
             return View(lista);
+        }
+
+        public IActionResult PreAlterar(int id)
+        {
+            FuncionarioModel model = new ();
+            return View("Cadastro", model.Selecionar(id));
         }
 
         public IActionResult Excluir(int id)
@@ -53,7 +59,7 @@ namespace TelaAzul.Controllers
                 model.Excluir(id);
 
                 ViewBag.classe = "alert-success";
-                ViewBag.msg = "Funcioário " + model.Nome + " excluido com sucesso.";
+                ViewBag.msg = "Funcionário " + model.Nome + " excluido com sucesso.";
             }
             catch (Exception ex)
             {

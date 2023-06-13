@@ -10,36 +10,40 @@
     <div class="row">
         <div class="col-4 form-group">
             <!--<label for="id" class="form-label" asp-for="Id"></label>-->
-            <input type="text" id="id" name="id" class="form-control" asp-for="Id" readonly hidden />
-            <span asp-validation-for="Id" class="alert-danger"></span>
+            <input type="text" asp-for="Id" class="form-control" id="id" readonly hidden />
+            <!--<span asp-validation-for="Id" class="alert-warning"></span>-->
         </div>
     </div>
 
     <div class="row">
         <div class="col-6 form-group">
             <label for="nome" class="form-label" asp-for="Nome"></label>
-            <input type="text" id="nome" name="nome" class="form-control" asp-for="Nome" />
-            <span asp-validation-for="Nome" class="alert-danger"></span>
+            <input type="text" asp-for="Nome"
+                   class="form-control" id="nome" />
+            <span asp-validation-for="Nome" class="alert-warning"></span>
         </div>
 
         <div class="col-4 form-group">
             <label for="dataNascimento" class="form-label" asp-for="Data_Nascimento"></label>
-            <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" asp-for="Data_Nascimento" />
-            <span asp-validation-for="Data_Nascimento" class="alert-danger" />
+            <input type="date" asp-for="Data_Nascimento"
+                   class="form-control" id="dataNascimento" value="" />
+            <span asp-validation-for="Data_Nascimento" class="alert-warning" />
         </div>
     </div>
 
     <div class="row">
         <div class="col-6 form-group">
             <label for="email" class="form-label" asp-for="Email"></label>
-            <input type="email" class="form-control" asp-for="Email" name="email" id="email" />
-            <span asp-validation-for="Email" class="alert-danger"></span>
+            <input type="email" asp-for="Email" 
+                   class="form-control" id="email" />
+            <span asp-validation-for="Email" class="alert-warning"></span>
         </div>
 
         <div class="col-6" form-group>
             <label for="senha" class="form-label" asp-for="Senha"></label>
-            <input type="password" class="form-control" asp-for="Senha" name="senha" id="senha" />
-            <span asp-validation-for="Senha" class="alert-danger"></span>
+            <input type="password" asp-for="Senha"
+                   class="form-control" id="senha" />
+            <span asp-validation-for="Senha" class="alert-warning"></span>
         </div>
     </div>
 

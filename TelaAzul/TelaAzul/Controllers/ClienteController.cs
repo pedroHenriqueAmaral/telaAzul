@@ -76,7 +76,7 @@ namespace TelaAzul.Controllers
             {
                 try
                 {
-                    ClienteModel cliModel = new ClienteModel();
+                    ClienteModel cliModel = new();
                     cliModel.Salvar(model);
 
                     ViewBag.classe = "alert-success";
@@ -105,13 +105,13 @@ namespace TelaAzul.Controllers
 
         public IActionResult PreAlterar(int id) 
         {
-            ClienteModel model = new ClienteModel();
+            ClienteModel model = new();
             return View("Cadastro", model.Selecionar(id));
         }
 
         public IActionResult Excluir(int id)
         {
-            ClienteModel model = new ClienteModel();
+            ClienteModel model = new();
 
             try
             {

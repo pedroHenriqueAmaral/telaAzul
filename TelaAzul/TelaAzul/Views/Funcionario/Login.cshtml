@@ -1,8 +1,69 @@
 ﻿@model TelaAzul.Models.FuncionarioModel
+
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" />
+</head>
+<body>
+    <main>
+        <div class="fundo">
+            <div class="container ret-branco">
+                <h1>Entrar como Funcionário</h1>
+
+                <form method="POST" asp-controller="Funcionario" asp-action="Logar">
+                    <div class="row">
+                        <div class="form-group col-lg-9 col-12">
+                            <label class="form-label" for="email">E-mail</label>
+                            <input type="email" asp-for="Email" 
+                                   id="email" class="form-control" placeholder="Digite seu e-mail" />
+                            <span asp-validation-for="Email" class="alert-warning"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-9 col-12">
+                            <label class="form-label" for="senha">Senha</label>
+                            <input type="password" asp-for="Senha"
+                                   id="senha" class="form-control" placeholder="Digite sua senha" />
+                            <span asp-validation-for="Senha" class="alert-warning"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-9 col-12">
+                            <input type="submit" value="Entrar" class="btn btn-dark btn-entrar" />
+                            <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+                        </div>
+                    </div>
+                </form>
+
+                <a href="~/Cliente/CadastroCliente" class="mb-2 link-cadastrar">
+                    Crie sua conta para acessar
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
 
 

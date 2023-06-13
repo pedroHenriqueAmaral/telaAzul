@@ -11,10 +11,14 @@ namespace TelaAzul.Models
         [Display(Name = "Código")]
         public int Id { get; set; }
 
-        [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
+        [Display(Name = "Nome")]
+        [Required(ErrorMessage = "Informe o nome")]
+        [MinLength(3, ErrorMessage = "No mínimo 3 caractéres")]
+        [MaxLength(25, ErrorMessage = "No máximo 25 caractéres")]
         public string ? Nome { get; set; }
 
         [Display(Name = "Data de Nascimento")]
+        [Required(ErrorMessage = "Informe a data de nascimento")]
         public DateTime Data_Nascimento { get; set; }
 
         [Display(Name = "Tipo")]
@@ -30,9 +34,12 @@ namespace TelaAzul.Models
         //
 
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "Informe o e-mail")]
         [MaxLength(50, ErrorMessage = "Máximo 50 Caractéres")]
         public string ? Email { get; set; }
 
+        [Display(Name = "Senha")]
+        [Required(ErrorMessage = "Informe a senha")]
         [MaxLength(30, ErrorMessage = "Máximo 30 Caractéres")]
         public string ? Senha { get; set; }
 

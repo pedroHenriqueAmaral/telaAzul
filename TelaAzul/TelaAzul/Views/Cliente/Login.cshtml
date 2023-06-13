@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TelaAzul.Models.ClienteModel
+
+@{
     ViewData["Title"] = "login";
     Layout = null;
 }
@@ -21,28 +23,36 @@
     <main>
         <div class="fundo">
             <div class="container ret-branco">
+                <a href="~/" >Voltar pro site</a>
+                <h1>LOGIN</h1>
+
                 <form method="POST" asp-controller="Cliente" asp-action="Logar">
                     <div class="row">
                         <div class="form-group col-lg-9 col-12">
                             <label class="form-label" for="email">E-mail</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu e-mail" required />
+                            <input type="email" asp-for="Email"
+                                   id="email" class="form-control" placeholder="Digite seu e-mail" />
+                            <span asp-validation-for="Email" class="alert-warning"></span>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-lg-9 col-12">
                             <label class="form-label" for="senha">Senha</label>
-                            <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha" required />
+                            <input type="password" asp-for="Senha"
+                                   id="senha" class="form-control" placeholder="Digite sua senha" />
+                            <span asp-validation-for="Senha" class="alert-warning"></span>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-lg-9 col-12">
                             <input type="submit" value="Entrar" class="btn btn-dark btn-entrar" />
-                            <span class="alert @ViewBag.classe">@ViewBag.msg</span>
                         </div>
                     </div>
                 </form>
+                
+                <span class="alert @ViewBag.classe">@ViewBag.msg</span>
 
                 <a href="~/Cliente/CadastroCliente" class="mb-2 link-cadastrar">
                     Crie sua conta para acessar

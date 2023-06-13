@@ -4,11 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Listar Funcionários</h1>
-    
-<a href="~/Funcionario/Cadastro" class="btn btn-success">Cadastrar Novo Funcionário</a>
-
 <span class="alert @ViewBag.classe">@ViewBag.msg</span>
+
+<h1>Listar Funcionários</h1>   
+<a href="~/Funcionario/Cadastro" class="btn btn-success">Cadastrar Novo Funcionário</a>
 
 <script>
     function confirmaExclusao(id) {
@@ -17,8 +16,6 @@
         }
     }
 </script>
-
-<a href="~/Funcionario/Cadastro" class="btn btn-success">Novo Funcionário</a>
 
 <table class="table table-striped">
     <thead>
