@@ -82,7 +82,7 @@ namespace TelaAzul.Models
 
             using(Context contexto = new Context())
             {
-                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                FuncionarioRepo repo = new(contexto);
                 Funcionario func = repo.Recuperar(c => c.Id == id);
 
                 model = mapper.Map<FuncionarioModel>(func);
@@ -92,9 +92,9 @@ namespace TelaAzul.Models
 
         public void Excluir(int id)
         {
-            using (Context contexto = new Context())
+            using (Context contexto = new())
             {
-                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                FuncionarioRepo repo = new(contexto);
                 Funcionario func = repo.Recuperar(c => c.Id == id);
 
                 repo.Excluir(func);
@@ -106,11 +106,11 @@ namespace TelaAzul.Models
         {
             FuncionarioModel? model = null;
 
-            using (Context contexto = new Context())
+            using (Context contexto = new())
             {
                 var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
 
-                FuncionarioRepo repo = new FuncionarioRepo(contexto);
+                FuncionarioRepo repo = new(contexto);
                 Funcionario func = repo.Recuperar(c => c.Email == email && c.Senha == senha);
                 model = mapper.Map<FuncionarioModel>(func);
             }

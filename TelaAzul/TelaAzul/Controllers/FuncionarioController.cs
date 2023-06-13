@@ -21,7 +21,7 @@ namespace TelaAzul.Controllers
                     funcModel.Salvar(model);
 
                     ViewBag.classe = "alert-success";
-                    ViewBag.msg = "Funcionáio " + model.Nome + " cadastrado com sucesso!";
+                    ViewBag.msg = "Funcionário(a) " + model.Nome + " cadastrado(a) com sucesso!";
                 }
                 catch (Exception ex)
                 {
@@ -59,7 +59,7 @@ namespace TelaAzul.Controllers
                 model.Excluir(id);
 
                 ViewBag.classe = "alert-success";
-                ViewBag.msg = "Funcionário " + model.Nome + " excluido com sucesso.";
+                ViewBag.msg = "Funcionário(a) " + model.Nome + " excluido(a) com sucesso.";
             }
             catch (Exception ex)
             {
